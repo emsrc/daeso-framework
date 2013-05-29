@@ -1,0 +1,16 @@
+Version 1.0.2
+	- Packaging in Egg format
+
+
+Version 1.0.1
+
+	- New utility function to write custom decorators.
+	
+	- Added tests for decorators.
+	
+	- Minor fixes.
+
+Version 1.0
+
+	Initial release.
+

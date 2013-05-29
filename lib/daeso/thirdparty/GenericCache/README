@@ -1,0 +1,104 @@
+This  simple  generic   cache  implementation  is  Copyright(c)  Pilot
+Systems, 2006-2008 and available under the terms of the GNU GPL v2.
+
+Version information
+-------------------
+
+Version 1.0.1, requires Python 2.4 or higher.
+
+Features
+--------
+
+- fast in memory caching of any object
+
+- transparent dictionnary-like usage
+
+- possibility to limit the cache size in number of objects
+
+- possibility to expire automatically objects after a given time of no update
+
+- thread-safe
+
+Basic usage
+-----------
+
+Creating a cache:
+
+  >>> from GenericCache.GenericCache import GenericCache
+  >>> c = GenericCache()
+
+Storing values:
+
+  >>> c["key"] = "value"
+     or
+  >>> c.insert("key", "value")
+
+Retrieving values:
+
+  >>> c["key"]
+     or
+  >>> c.fetch("key")
+
+None is returned if no value is found in the cache. Fetch can take
+an optional value to fail with KeyError if no value is found.
+
+Constructor options
+-------------------
+
+The constructor of GenericCache can take three options :
+
+- maxsize : the  maximal size (in number of objects)  of the cache, if
+  it's reached, the least recently used items will be evicted ;
+
+- expiry : maximal  lifetime of objects in the cache,  in seconds ; be
+  warned that this only checked when an attempt to retrieve the object
+  is done, so  expired objects may stay in the cache  for very long if
+  no one tries to access them ;
+
+- default_fail :  by default,  the cache will  return None in  case of
+  missing  item  (because throwing/catching  exceptions  is slower  in
+  Python than normal return), if you  set this to true, it'll throw an
+  exception instead.
+
+Warnings
+--------
+
+- in current implementation keys are converted into strings
+
+- object expiry for timeout is lazy, which means that objects stay in
+  the cache until someone try to access them, len() will still see
+  them; there is a collect() method to collect all timeouted objects,
+  but it may be slow.
+
+Decorator usage
+---------------
+
+The decorator, for Python 2.4+, can be used to decorate any function
+or method. Here is an example:
+
+  >>> from GenericCache.GenericCache import GenericCache
+  >>> from GenericCache.decorators import cached
+  >>> cache = GenericCache()
+  >>> @cached(cache)
+  ... def add(x, y):
+  ...     print x, "+", y
+  ...     return x + y
+  ... 
+  >>> add(2,3)
+  2 + 3
+  5
+  >>> add(2,3)
+  5
+  >>> add(2,4)
+  2 + 4
+  6
+  >>> add(2,4)
+  6
+  >>> add(2,3)
+  5
+  >>> 
+  
+The decorator  takes an optional parameter, a  marshaller that filter
+the paramters of the function and converts it into a caching key (some
+parameters may be discarded, for example).
+

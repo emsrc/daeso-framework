@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<parallel_graph_corpus>
+  <corpus_meta_data>
+    <comment>Annotator: HS</comment>
+  </corpus_meta_data>
+  <graphbanks>
+    <file format="alpino" id="1">../../gb/data/source-gb-2.xml</file>
+    <file format="alpino" id="2">../../gb/data/target-gb-2.xml</file>
+  </graphbanks>
+  <node_relations>
+    <relation>equals</relation>
+    <relation>restates</relation>
+    <relation>specifies</relation>
+    <relation>generalizes</relation>
+    <relation>intersects</relation>
+  </node_relations>
+  <aligned_graphs>
+    <graph_pair from_bank_id="1" from_graph_id="1" to_bank_id="2" to_graph_id="1">
+      <aligned_nodes>
+        <node_pair from_node_id="3" relation="equals" to_node_id="3"/>
+        <node_pair from_node_id="1" relation="restates" to_node_id="1"/>
+        <node_pair from_node_id="0" relation="restates" to_node_id="0"/>
+        <node_pair from_node_id="2" relation="restates" to_node_id="4"/>
+      </aligned_nodes>
+    </graph_pair>
+    <graph_pair from_bank_id="1" from_graph_id="2" to_bank_id="2" to_graph_id="2">
+      <aligned_nodes>
+        <node_pair from_node_id="4" relation="equals" to_node_id="4"/>
+        <node_pair from_node_id="8" relation="equals" to_node_id="11"/>
+        <node_pair from_node_id="5" relation="equals" to_node_id="5"/>
+        <node_pair from_node_id="11" relation="intersects" to_node_id="10"/>
+        <node_pair from_node_id="19" relation="intersects" to_node_id="8"/>
+        <node_pair from_node_id="1" relation="restates" to_node_id="1"/>
+        <node_pair from_node_id="0" relation="restates" to_node_id="0"/>
+      </aligned_nodes>
+    </graph_pair>
+    <graph_pair from_bank_id="1" from_graph_id="5" to_bank_id="2" to_graph_id="5">
+      <aligned_nodes>
+        <node_pair from_node_id="14" relation="equals" to_node_id="12"/>
+        <node_pair from_node_id="15" relation="equals" to_node_id="13"/>
+        <node_pair from_node_id="33" relation="equals" to_node_id="30"/>
+        <node_pair from_node_id="27" relation="equals" to_node_id="25"/>
+        <node_pair from_node_id="13" relation="equals" to_node_id="11"/>
+        <node_pair from_node_id="25" relation="equals" to_node_id="23"/>
+        <node_pair from_node_id="23" relation="equals" to_node_id="21"/>
+        <node_pair from_node_id="24" relation="equals" to_node_id="22"/>
+        <node_pair from_node_id="32" relation="equals" to_node_id="29"/>
+        <node_pair from_node_id="6" relation="equals" to_node_id="5"/>
+        <node_pair from_node_id="5" relation="equals" to_node_id="4"/>
+        <node_pair from_node_id="18" relation="equals" to_node_id="16"/>
+        <node_pair from_node_id="29" relation="equals" to_node_id="27"/>
+        <node_pair from_node_id="16" relation="equals" to_node_id="14"/>
+        <node_pair from_node_id="17" relation="equals" to_node_id="15"/>
+        <node_pair from_node_id="21" relation="equals" to_node_id="19"/>
+        <node_pair from_node_id="9" relation="equals" to_node_id="8"/>
+        <node_pair from_node_id="3" relation="restates" to_node_id="3"/>
+        <node_pair from_node_id="26" relation="restates" to_node_id="24"/>
+        <node_pair from_node_id="1" relation="restates" to_node_id="1"/>
+        <node_pair from_node_id="0" relation="restates" to_node_id="0"/>
+        <node_pair from_node_id="7" relation="restates" to_node_id="6"/>
+      </aligned_nodes>
+    </graph_pair>
+  </aligned_graphs>
+</parallel_graph_corpus>

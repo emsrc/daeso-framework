@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<syntax>
+  <alpino_ds id="s100" version="1.1">
+    <node begin="0" cat="top" end="29" id="0" rel="top">
+      <node begin="7" end="8" id="1" pos="punct" rel="--" root="," word=","/>
+      <node begin="23" end="24" id="2" pos="punct" rel="--" root="&quot;" word="&quot;"/>
+      <node begin="26" end="27" id="3" pos="punct" rel="--" root="&quot;" word="&quot;"/>
+      <node begin="0" cat="smain" end="28" id="4" rel="--">
+        <node begin="8" end="9" id="5" pos="verb" rel="hd" root="hebben" word="heb"/>
+        <node begin="9" end="10" id="6" index="1" pos="pron" rel="su" root="ik" word="ik"/>
+        <node begin="0" cat="ppart" end="28" id="7" rel="vc">
+          <node begin="0" cat="cp" end="7" id="8" rel="mod">
+            <node begin="0" end="1" id="9" pos="comp" rel="cmp" root="toen" word="Toen"/>
+            <node begin="1" cat="ssub" end="7" id="10" rel="body">
+              <node begin="1" end="2" id="11" pos="pron" rel="su" root="ik" word="ik"/>
+              <node begin="2" cat="np" end="6" id="12" rel="mod">
+                <node begin="3" end="4" id="13" pos="noun" rel="hd" root="jaar" word="jaar"/>
+                <node begin="2" cat="detp" end="6" id="14" rel="det">
+                  <node begin="2" cat="mwu" end="5" id="15" rel="mod">
+                    <node begin="2" end="3" id="16" pos="det" rel="mwp" root="een" word="een"/>
+                    <node begin="4" end="5" id="17" pos="vg" rel="mwp" root="of" word="of"/>
+                  </node>
+                  <node begin="5" end="6" id="18" pos="num" rel="hd" root="zes" word="zes"/>
+                </node>
+              </node>
+              <node begin="6" end="7" id="19" pos="verb" rel="hd" root="zijn" word="was"/>
+            </node>
+          </node>
+          <node begin="9" end="10" id="20" index="1" rel="su"/>
+          <node begin="10" cat="np" end="15" id="21" rel="obj1">
+            <node begin="10" end="11" id="22" pos="det" rel="det" root="een" word="een"/>
+            <node begin="11" end="12" id="23" pos="noun" rel="hd" root="keer" word="keer"/>
+            <node begin="12" cat="np" end="15" id="24" rel="mod">
+              <node begin="12" end="13" id="25" pos="det" rel="det" root="een" word="een"/>
+              <node begin="13" end="14" id="26" pos="adj" rel="mod" root="prachtig" word="prachtig"/>
+              <node begin="14" end="15" id="27" pos="noun" rel="hd" root="plaat_DIM" word="plaatje"/>
+            </node>
+          </node>
+          <node begin="15" end="16" id="28" pos="verb" rel="hd" root="zien" word="gezien"/>
+          <node begin="16" cat="pp" end="28" id="29" rel="mod">
+            <node begin="16" end="17" id="30" pos="prep" rel="hd" root="in" word="in"/>
+            <node begin="17" cat="np" end="28" id="31" rel="obj1">
+              <node begin="17" end="18" id="32" pos="det" rel="det" root="een" word="een"/>
+              <node begin="18" end="19" id="33" pos="noun" rel="hd" root="boek" word="boek"/>
+              <node begin="19" cat="pp" end="22" id="34" rel="mod">
+                <node begin="19" end="20" id="35" pos="prep" rel="hd" root="over" word="over"/>
+                <node begin="20" cat="np" end="22" id="36" rel="obj1">
+                  <node begin="20" end="21" id="37" pos="det" rel="det" root="het" word="het"/>
+                  <node begin="21" end="22" id="38" pos="name" rel="hd" root="Oerwoud" word="Oerwoud"/>
+                </node>
+              </node>
+              <node begin="22" cat="rel" end="28" id="39" rel="mod">
+                <node begin="22" end="23" id="40" index="2" pos="pron" rel="rhd" root="dat" word="dat"/>
+                <node begin="22" cat="ssub" end="28" id="41" rel="body">
+                  <node begin="22" end="23" id="42" index="2" rel="su"/>
+                  <node begin="24" cat="mwu" end="26" id="43" rel="predc">
+                    <node begin="24" end="25" id="44" pos="name" rel="mwp" root="Ware" word="Ware"/>
+                    <node begin="25" end="26" id="45" pos="name" rel="mwp" root="Verhalen" word="Verhalen"/>
+                  </node>
+                  <node begin="27" end="28" id="46" pos="verb" rel="hd" root="heten" word="heette"/>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+      <node begin="28" end="29" id="47" pos="punct" rel="--" root="." word="."/>
+    </node>
+    <sentence>Toen ik een jaar of zes was , heb ik een keer een prachtig plaatje gezien in een boek over het Oerwoud dat " Ware Verhalen " heette .</sentence>
+    <comments>
+      <comment>Q#1|Toen ik een jaar of zes was , heb ik een keer een prachtig plaatje gezien in een boek over het Oerwoud dat " Ware Verhalen " heette .|1|1|0.11300145410000001</comment>
+    </comments>
+  </alpino_ds>
+  <alpino_ds id="s200" version="1.1">
+    <node begin="0" cat="top" end="11" id="0" rel="top">
+      <node begin="0" end="1" id="1" pos="pron" rel="--" root="je" word="Je"/>
+      <node begin="1" cat="sv1" end="10" id="2" rel="--">
+        <node begin="1" end="2" id="3" pos="verb" rel="hd" root="zien_op" word="zag"/>
+        <node begin="2" end="3" id="4" pos="adv" rel="mod" root="er" word="er"/>
+        <node begin="5" end="6" id="5" pos="part" rel="svp" root="op" word="op"/>
+        <node begin="3" cat="np" end="10" id="6" rel="su">
+          <node begin="3" end="4" id="7" pos="det" rel="det" root="een" word="een"/>
+          <node begin="4" end="5" id="8" pos="noun" rel="hd" root="boa_slang" word="boa-slang"/>
+          <node begin="6" cat="rel" end="10" id="9" rel="mod">
+            <node begin="6" end="7" id="10" index="1" pos="pron" rel="rhd" root="die" word="die"/>
+            <node begin="6" cat="ssub" end="10" id="11" rel="body">
+              <node begin="6" end="7" id="12" index="1" rel="su"/>
+              <node begin="7" cat="np" end="9" id="13" rel="obj1">
+                <node begin="7" end="8" id="14" pos="det" rel="det" root="een" word="een"/>
+                <node begin="8" end="9" id="15" pos="noun" rel="hd" root="roofdier" word="roofdier"/>
+              </node>
+              <node begin="9" end="10" id="16" pos="verb" rel="hd" root="slikken_door" word="doorslikte"/>
+            </node>
+          </node>
+        </node>
+      </node>
+      <node begin="10" end="11" id="17" pos="punct" rel="--" root="." word="."/>
+    </node>
+    <sentence>Je zag er een boa-slang op die een roofdier doorslikte .</sentence>
+    <comments>
+      <comment>Q#2|Je zag er een boa-slang op die een roofdier doorslikte .|1|2|0.07484377800000003</comment>
+    </comments>
+  </alpino_ds>
+  <alpino_ds id="s300" version="1.1">
+    <node begin="0" cat="top" end="7" id="0" rel="top">
+      <node begin="0" cat="smain" end="6" id="1" rel="--">
+        <node begin="0" end="1" id="2" index="1" pos="pron" rel="su" root="ik" word="Ik"/>
+        <node begin="1" end="2" id="3" pos="verb" rel="hd" root="hebben" word="heb"/>
+        <node begin="0" cat="ppart" end="6" id="4" rel="vc">
+          <node begin="0" end="1" id="5" index="1" rel="su"/>
+          <node begin="2" cat="np" end="4" id="6" rel="obj1">
+            <node begin="2" end="3" id="7" pos="det" rel="det" root="dat" word="dat"/>
+            <node begin="3" end="4" id="8" pos="noun" rel="hd" root="plaat_DIM" word="plaatje"/>
+          </node>
+          <node begin="4" end="5" id="9" pos="adv" rel="mod" root="hier" word="hier"/>
+          <node begin="5" end="6" id="10" pos="verb" rel="hd" root="na_tekenen" word="nagetekend"/>
+        </node>
+      </node>
+      <node begin="6" end="7" id="11" pos="punct" rel="--" root="." word="."/>
+    </node>
+    <sentence>Ik heb dat plaatje hier nagetekend .</sentence>
+    <comments>
+      <comment>Q#3|Ik heb dat plaatje hier nagetekend .|1|1|-0.14253591199999996</comment>
+    </comments>
+  </alpino_ds>
+</syntax>

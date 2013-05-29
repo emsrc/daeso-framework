@@ -1,0 +1,5 @@
+include COPYING CHANGES INSTALL 
+recursive-include doc *
+recursive-include test *
+recursive-include data *
+global-exclude *.svn*
