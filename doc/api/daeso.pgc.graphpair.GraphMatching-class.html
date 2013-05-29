@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>daeso.pgc.graphpair.GraphMatching</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="daeso-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="daeso-module.html">Package&nbsp;daeso</a> ::
+        <a href="daeso.pgc-module.html">Package&nbsp;pgc</a> ::
+        <a href="daeso.pgc.graphpair-module.html">Module&nbsp;graphpair</a> ::
+        Class&nbsp;GraphMatching
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="daeso.pgc.graphpair.GraphMatching-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class GraphMatching</h1><p class="nomargin-top"><span class="codelink"><a href="daeso.pgc.graphpair-pysrc.html#GraphMatching">source&nbsp;code</a></span></p>
+<pre class="base-tree">
+                      object --+        
+                               |        
+                   <a href="daeso.pgc.graphpair.GraphPairBase-class.html">GraphPairBase</a> --+    
+                                   |    
+                  object --+       |    
+                           |       |    
+networkx.classes.graph.Graph --+   |    
+                               |   |    
+networkx.classes.digraph.DiGraph --+    
+                                   |    
+                        <a href="daeso.pgc.graphpair.GraphMapping-class.html">GraphMapping</a> --+
+                                       |
+                                      <strong class="uidshort">GraphMatching</strong>
+</pre>
+
+<hr />
+<p>The GraphMatching class represents a matching between a pair of graphs
+  where node alignment is a (partial) injective. That is, only one-to-one 
+  node alignments are allowed; aka a bipartite matching in graph 
+  theory.</p>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="daeso.pgc.graphpair.GraphMatching-class.html#add_align" class="summary-sig-name">add_align</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">nodes</span>,
+        <span class="summary-sig-arg">relation</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="daeso.pgc.graphpair-pysrc.html#GraphMatching.add_align">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="get_aligned_source_node"></a><span class="summary-sig-name">get_aligned_source_node</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">n</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="daeso.pgc.graphpair-pysrc.html#GraphMatching.get_aligned_source_node">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="get_aligned_target_node"></a><span class="summary-sig-name">get_aligned_target_node</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">n</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="daeso.pgc.graphpair-pysrc.html#GraphMatching.get_aligned_target_node">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="daeso.pgc.graphpair.GraphMapping-class.html">GraphMapping</a></code></b>:
+      <code><a href="daeso.pgc.graphpair.GraphMapping-class.html#__deepcopy__">__deepcopy__</a></code>,
+      <code><a href="daeso.pgc.graphpair.GraphMapping-class.html#__eq__">__eq__</a></code>,
+      <code><a href="daeso.pgc.graphpair.GraphMapping-class.html#__init__">__init__</a></code>,
+      <code><a href="daeso.pgc.graphpair.GraphMapping-class.html#__len__">__len__</a></code>,
+      <code><a href="daeso.pgc.graphpair.GraphMapping-class.html#__str__">__str__</a></code>,
+      <code><a href="daeso.pgc.graphpair.GraphMapping-class.html#alignments">alignments</a></code>,
+      <code><a href="daeso.pgc.graphpair.GraphMapping-class.html#alignments_iter">alignments_iter</a></code>,
+      <code><a href="daeso.pgc.graphpair.GraphMapping-class.html#del_align">del_align</a></code>,
+      <code><a href="daeso.pgc.graphpair.GraphMapping-class.html#dump_alignments">dump_alignments</a></code>,
+      <code><a href="daeso.pgc.graphpair.GraphMapping-class.html#get_align">get_align</a></code>,
+      <code><a href="daeso.pgc.graphpair.GraphMapping-class.html#roots_aligned">roots_aligned</a></code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="daeso.pgc.graphpair.GraphMapping-class.html">GraphMapping</a></code></b> (private):
+      <code><a href="daeso.pgc.graphpair.GraphMapping-class.html#_alignments_equal" onclick="show_private();">_alignments_equal</a></code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="daeso.pgc.graphpair.GraphPairBase-class.html">GraphPairBase</a></code></b>:
+      <code><a href="daeso.pgc.graphpair.GraphPairBase-class.html#get_banks">get_banks</a></code>,
+      <code><a href="daeso.pgc.graphpair.GraphPairBase-class.html#get_graphs">get_graphs</a></code>,
+      <code><a href="daeso.pgc.graphpair.GraphPairBase-class.html#get_meta_data">get_meta_data</a></code>,
+      <code><a href="daeso.pgc.graphpair.GraphPairBase-class.html#get_source_bank">get_source_bank</a></code>,
+      <code><a href="daeso.pgc.graphpair.GraphPairBase-class.html#get_source_graph">get_source_graph</a></code>,
+      <code><a href="daeso.pgc.graphpair.GraphPairBase-class.html#get_target_bank">get_target_bank</a></code>,
+      <code><a href="daeso.pgc.graphpair.GraphPairBase-class.html#get_target_graph">get_target_graph</a></code>,
+      <code><a href="daeso.pgc.graphpair.GraphPairBase-class.html#set_meta_data">set_meta_data</a></code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="daeso.pgc.graphpair.GraphPairBase-class.html">GraphPairBase</a></code></b> (private):
+      <code><a href="daeso.pgc.graphpair.GraphPairBase-class.html#_graphs_equal" onclick="show_private();">_graphs_equal</a></code>,
+      <code><a href="daeso.pgc.graphpair.GraphPairBase-class.html#_meta_data_equal" onclick="show_private();">_meta_data_equal</a></code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>networkx.classes.digraph.DiGraph</code></b>:
+      <code>add_edge</code>,
+      <code>add_edges_from</code>,
+      <code>add_node</code>,
+      <code>add_nodes_from</code>,
+      <code>clear</code>,
+      <code>degree_iter</code>,
+      <code>edges_iter</code>,
+      <code>has_predecessor</code>,
+      <code>has_successor</code>,
+      <code>in_degree</code>,
+      <code>in_degree_iter</code>,
+      <code>in_edges</code>,
+      <code>in_edges_iter</code>,
+      <code>is_directed</code>,
+      <code>is_multigraph</code>,
+      <code>neighbors</code>,
+      <code>neighbors_iter</code>,
+      <code>out_degree</code>,
+      <code>out_degree_iter</code>,
+      <code>out_edges</code>,
+      <code>out_edges_iter</code>,
+      <code>predecessors</code>,
+      <code>predecessors_iter</code>,
+      <code>remove_edge</code>,
+      <code>remove_edges_from</code>,
+      <code>remove_node</code>,
+      <code>remove_nodes_from</code>,
+      <code>reverse</code>,
+      <code>subgraph</code>,
+      <code>successors</code>,
+      <code>successors_iter</code>,
+      <code>to_directed</code>,
+      <code>to_undirected</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>networkx.classes.graph.Graph</code></b>:
+      <code>__contains__</code>,
+      <code>__getitem__</code>,
+      <code>__iter__</code>,
+      <code>add_cycle</code>,
+      <code>add_path</code>,
+      <code>add_star</code>,
+      <code>add_weighted_edges_from</code>,
+      <code>adjacency_iter</code>,
+      <code>adjacency_list</code>,
+      <code>copy</code>,
+      <code>degree</code>,
+      <code>edges</code>,
+      <code>get_edge_data</code>,
+      <code>has_edge</code>,
+      <code>has_node</code>,
+      <code>nbunch_iter</code>,
+      <code>nodes</code>,
+      <code>nodes_iter</code>,
+      <code>nodes_with_selfloops</code>,
+      <code>number_of_edges</code>,
+      <code>number_of_nodes</code>,
+      <code>number_of_selfloops</code>,
+      <code>order</code>,
+      <code>selfloop_edges</code>,
+      <code>size</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__format__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__repr__</code>,
+      <code>__setattr__</code>,
+      <code>__sizeof__</code>,
+      <code>__subclasshook__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>networkx.classes.graph.Graph</code></b>:
+      <code>name</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="add_align"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">add_align</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">nodes</span>,
+        <span class="sig-arg">relation</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="daeso.pgc.graphpair-pysrc.html#GraphMatching.add_align">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="daeso.pgc.graphpair.GraphMapping-class.html#add_align">GraphMapping.add_align</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="daeso-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Wed May 29 16:08:23 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

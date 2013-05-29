@@ -38,7 +38,8 @@ on, e.g., your Linux distribution).
 --------------------------------------------------------------------------------
 
 1. Download the source archive in your preferred format
-   (e.g. daeso-framework-0.9.0.tar.gz) from http://daeso.uvt.nl
+   (e.g. daeso-framework-0.9.0.tar.gz) from 
+   https://github.com/emsrc/daeso-framework/wiki/Python-packages
 
 2. Unpack (e.g. tar xvzf daeso-framework-0.9.0.tar.gz) in a suitable location
    (e.g. /usr/local/src)

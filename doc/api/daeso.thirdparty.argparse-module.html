@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>daeso.thirdparty.argparse</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="daeso-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="daeso-module.html">Package&nbsp;daeso</a> ::
+        <a href="daeso.thirdparty-module.html">Package&nbsp;thirdparty</a> ::
+        Module&nbsp;argparse
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="daeso.thirdparty.argparse-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module argparse</h1><p class="nomargin-top"><span class="codelink"><a href="daeso.thirdparty.argparse-pysrc.html">source&nbsp;code</a></span></p>
+<p>Command-line parsing library</p>
+  <p>This module is an optparse-inspired command-line parsing library 
+  that:</p>
+  <ul>
+    <li>
+      handles both optional and positional arguments
+    </li>
+    <li>
+      produces highly informative usage messages
+    </li>
+    <li>
+      supports parsers that dispatch to sub-parsers
+    </li>
+  </ul>
+  <p>The following is a simple usage example that sums integers from the 
+  command-line and writes the result to a file:</p>
+<pre class="literalblock">
+   parser = argparse.ArgumentParser(
+       description='sum the integers at the command line')
+   parser.add_argument(
+       'integers', metavar='int', nargs='+', type=int,
+       help='an integer to be summed')
+   parser.add_argument(
+       '--log', default=sys.stdout, type=argparse.FileType('w'),
+       help='the file where the sum should be written')
+   args = parser.parse_args()
+   args.log.write('%s' % sum(args.integers))
+   args.log.close()
+</pre>
+  <p>The module contains the following public classes:</p>
+  <ul>
+    <li>
+      ArgumentParser -- The main entry point for command-line parsing. As 
+      the example above shows, the add_argument() method is used to 
+      populate the parser with actions for optional and positional 
+      arguments. Then the parse_args() method is invoked to convert the 
+      args at the command-line into an object with attributes.
+    </li>
+    <li>
+      ArgumentError -- The exception raised by ArgumentParser objects when 
+      there are errors with the parser's actions. Errors raised while 
+      parsing the command-line are caught by ArgumentParser and emitted as 
+      command-line messages.
+    </li>
+    <li>
+      FileType -- A factory for defining types of files to be created. As 
+      the example above shows, instances of FileType are typically passed 
+      as the type= argument of add_argument() calls.
+    </li>
+    <li>
+      Action -- The base class for parser actions. Typically actions are 
+      selected by passing strings like 'store_true' or 'append_const' to 
+      the action= argument of add_argument(). However, for greater 
+      customization of ArgumentParser actions, subclasses of Action may be 
+      defined and passed as the action= argument.
+    </li>
+    <li>
+      HelpFormatter, RawDescriptionHelpFormatter, RawTextHelpFormatter, 
+      ArgumentDefaultsHelpFormatter -- Formatter classes which may be 
+      passed as the formatter_class= argument to the ArgumentParser 
+      constructor. HelpFormatter is the default, 
+      RawDescriptionHelpFormatter and RawTextHelpFormatter tell the parser 
+      not to change the formatting for help text, and 
+      ArgumentDefaultsHelpFormatter adds information about argument 
+      defaults to the help.
+    </li>
+  </ul>
+  <p>All other classes in this module are considered implementation 
+  details. (Also note that HelpFormatter and RawDescriptionHelpFormatter 
+  are only considered public as object names -- the API of the formatter 
+  objects is still considered an implementation detail.)</p>
+
+<hr />
+<div class="fields">      <p><strong>Version:</strong>
+        1.0.1
+      </p>
+</div><!-- ==================== CLASSES ==================== -->
+<a name="section-Classes"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Classes</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Classes"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="daeso.thirdparty.argparse._AttributeHolder-class.html" class="summary-name" onclick="show_private();">_AttributeHolder</a><br />
+      Abstract base class that provides __repr__.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="daeso.thirdparty.argparse.HelpFormatter-class.html" class="summary-name">HelpFormatter</a><br />
+      Formatter for generating usage messages and argument help strings.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="daeso.thirdparty.argparse.RawDescriptionHelpFormatter-class.html" class="summary-name">RawDescriptionHelpFormatter</a><br />
+      Help message formatter which retains any formatting in 
+        descriptions.
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="daeso.thirdparty.argparse.RawTextHelpFormatter-class.html" class="summary-name" onclick="show_private();">RawTextHelpFormatter</a><br />
+      Help message formatter which retains formatting of all help text.
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="daeso.thirdparty.argparse.ArgumentDefaultsHelpFormatter-class.html" class="summary-name" onclick="show_private();">ArgumentDefaultsHelpFormatter</a><br />
+      Help message formatter which adds default values to argument help.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="daeso.thirdparty.argparse.ArgumentError-class.html" class="summary-name">ArgumentError</a><br />
+      An error from creating or using an argument (optional or 
+        positional).
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="daeso.thirdparty.argparse.Action-class.html" class="summary-name">Action</a><br />
+      Information about how to convert command line strings to Python 
+        objects.
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="daeso.thirdparty.argparse._StoreAction-class.html" class="summary-name" onclick="show_private();">_StoreAction</a>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="daeso.thirdparty.argparse._StoreConstAction-class.html" class="summary-name" onclick="show_private();">_StoreConstAction</a>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="daeso.thirdparty.argparse._StoreTrueAction-class.html" class="summary-name" onclick="show_private();">_StoreTrueAction</a>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="daeso.thirdparty.argparse._StoreFalseAction-class.html" class="summary-name" onclick="show_private();">_StoreFalseAction</a>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="daeso.thirdparty.argparse._AppendAction-class.html" class="summary-name" onclick="show_private();">_AppendAction</a>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="daeso.thirdparty.argparse._AppendConstAction-class.html" class="summary-name" onclick="show_private();">_AppendConstAction</a>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="daeso.thirdparty.argparse._CountAction-class.html" class="summary-name" onclick="show_private();">_CountAction</a>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="daeso.thirdparty.argparse._HelpAction-class.html" class="summary-name" onclick="show_private();">_HelpAction</a>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="daeso.thirdparty.argparse._VersionAction-class.html" class="summary-name" onclick="show_private();">_VersionAction</a>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="daeso.thirdparty.argparse._SubParsersAction-class.html" class="summary-name" onclick="show_private();">_SubParsersAction</a>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="daeso.thirdparty.argparse.FileType-class.html" class="summary-name">FileType</a><br />
+      Factory for creating file object types
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="daeso.thirdparty.argparse.Namespace-class.html" class="summary-name">Namespace</a><br />
+      Simple object for storing attributes.
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="daeso.thirdparty.argparse._ActionsContainer-class.html" class="summary-name" onclick="show_private();">_ActionsContainer</a>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="daeso.thirdparty.argparse._ArgumentGroup-class.html" class="summary-name" onclick="show_private();">_ArgumentGroup</a>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="daeso.thirdparty.argparse._MutuallyExclusiveGroup-class.html" class="summary-name" onclick="show_private();">_MutuallyExclusiveGroup</a>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="daeso.thirdparty.argparse.ArgumentParser-class.html" class="summary-name">ArgumentParser</a><br />
+      Object for parsing command line strings into Python objects.
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_ensure_value"></a><span class="summary-sig-name">_ensure_value</span>(<span class="summary-sig-arg">namespace</span>,
+        <span class="summary-sig-arg">name</span>,
+        <span class="summary-sig-arg">value</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="daeso.thirdparty.argparse-pysrc.html#_ensure_value">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_get_action_name"></a><span class="summary-sig-name">_get_action_name</span>(<span class="summary-sig-arg">argument</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="daeso.thirdparty.argparse-pysrc.html#_get_action_name">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Variables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="warnings"></a><span class="summary-name">warnings</span>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="SUPPRESS"></a><span class="summary-name">SUPPRESS</span> = <code title="'==SUPPRESS=='"><code class="variable-quote">'</code><code class="variable-string">==SUPPRESS==</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="OPTIONAL"></a><span class="summary-name">OPTIONAL</span> = <code title="'?'"><code class="variable-quote">'</code><code class="variable-string">?</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="ZERO_OR_MORE"></a><span class="summary-name">ZERO_OR_MORE</span> = <code title="'*'"><code class="variable-quote">'</code><code class="variable-string">*</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="ONE_OR_MORE"></a><span class="summary-name">ONE_OR_MORE</span> = <code title="'+'"><code class="variable-quote">'</code><code class="variable-string">+</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="PARSER"></a><span class="summary-name">PARSER</span> = <code title="'==PARSER=='"><code class="variable-quote">'</code><code class="variable-string">==PARSER==</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="'daeso.thirdparty'"><code class="variable-quote">'</code><code class="variable-string">daeso.thirdparty</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="daeso-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Wed May 29 16:08:23 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

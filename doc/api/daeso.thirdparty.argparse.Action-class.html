@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>daeso.thirdparty.argparse.Action</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="daeso-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="daeso-module.html">Package&nbsp;daeso</a> ::
+        <a href="daeso.thirdparty-module.html">Package&nbsp;thirdparty</a> ::
+        <a href="daeso.thirdparty.argparse-module.html">Module&nbsp;argparse</a> ::
+        Class&nbsp;Action
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="daeso.thirdparty.argparse.Action-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class Action</h1><p class="nomargin-top"><span class="codelink"><a href="daeso.thirdparty.argparse-pysrc.html#Action">source&nbsp;code</a></span></p>
+<pre class="base-tree">
+      object --+    
+               |    
+<a href="daeso.thirdparty.argparse._AttributeHolder-class.html" onclick="show_private();">_AttributeHolder</a> --+
+                   |
+                  <strong class="uidshort">Action</strong>
+</pre>
+
+<dl><dt>Known Subclasses:</dt>
+<dd>
+      <ul class="subclass-list">
+<li class="private"><a href="daeso.thirdparty.argparse._AppendAction-class.html" onclick="show_private();">_AppendAction</a></li><li class="private">, <a href="daeso.thirdparty.argparse._AppendConstAction-class.html" onclick="show_private();">_AppendConstAction</a></li><li class="private">, <a href="daeso.thirdparty.argparse._CountAction-class.html" onclick="show_private();">_CountAction</a></li><li class="private">, <a href="daeso.thirdparty.argparse._HelpAction-class.html" onclick="show_private();">_HelpAction</a></li><li class="private">, <a href="daeso.thirdparty.argparse._StoreAction-class.html" onclick="show_private();">_StoreAction</a></li><li class="private">, <a href="daeso.thirdparty.argparse._StoreConstAction-class.html" onclick="show_private();">_StoreConstAction</a></li><li class="private">, <a href="daeso.thirdparty.argparse._SubParsersAction-class.html" onclick="show_private();">_SubParsersAction</a></li><li class="private">, <a href="daeso.thirdparty.argparse._SubParsersAction._ChoicesPseudoAction-class.html" onclick="show_private();">_SubParsersAction._ChoicesPseudoAction</a></li><li class="private">, <a href="daeso.thirdparty.argparse._VersionAction-class.html" onclick="show_private();">_VersionAction</a></li>  </ul>
+</dd></dl>
+
+<hr />
+<p>Information about how to convert command line strings to Python 
+  objects.</p>
+  <p>Action objects are used by an ArgumentParser to represent the 
+  information needed to parse a single argument from one or more strings 
+  from the command line. The keyword arguments to the Action constructor 
+  are also all attributes of Action instances.</p>
+  <p>Keyword Arguments:</p>
+  <ul>
+    <li>
+      option_strings -- A list of command-line option strings which should 
+      be associated with this action.
+    </li>
+    <li>
+      dest -- The name of the attribute to hold the created object(s)
+    </li>
+    <li>
+      nargs -- The number of command-line arguments that should be 
+      consumed. By default, one argument will be consumed and a single 
+      value will be produced.  Other values include:
+      <ul>
+        <li>
+          N (an integer) consumes N arguments (and produces a list)
+        </li>
+        <li>
+          '?' consumes zero or one arguments
+        </li>
+        <li>
+          '*' consumes zero or more arguments (and produces a list)
+        </li>
+        <li>
+          '+' consumes one or more arguments (and produces a list)
+        </li>
+      </ul>
+      <p>Note that the difference between the default and nargs=1 is that 
+      with the default, a single value will be produced, while with 
+      nargs=1, a list containing a single value will be produced.</p>
+    </li>
+    <li>
+      const -- The value to be produced if the option is specified and the 
+      option uses an action that takes no values.
+    </li>
+    <li>
+      default -- The value to be produced if the option is not specified.
+    </li>
+    <li>
+      type -- The type which the command-line arguments should be converted
+      to, should be one of 'string', 'int', 'float', 'complex' or a 
+      callable object that accepts a single string argument. If None, 
+      'string' is assumed.
+    </li>
+    <li>
+      choices -- A container of values that should be allowed. If not None,
+      after a command-line argument has been converted to the appropriate 
+      type, an exception will be raised if it is not a member of this 
+      collection.
+    </li>
+    <li>
+      required -- True if the action must always be specified at the 
+      command line. This is only meaningful for optional command-line 
+      arguments.
+    </li>
+    <li>
+      help -- The help string describing the argument.
+    </li>
+    <li>
+      metavar -- The name to be used for the option's argument with the 
+      help string. If None, the 'dest' value will be used as the name.
+    </li>
+  </ul>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="daeso.thirdparty.argparse.Action-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">option_strings</span>,
+        <span class="summary-sig-arg">dest</span>,
+        <span class="summary-sig-arg">nargs</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">const</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">default</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">type</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">choices</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">required</span>=<span class="summary-sig-default">False</span>,
+        <span class="summary-sig-arg">help</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">metavar</span>=<span class="summary-sig-default">None</span>)</span><br />
+      x.__init__(...) initializes x; see help(type(x)) for signature</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="daeso.thirdparty.argparse-pysrc.html#Action.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="daeso.thirdparty.argparse.Action-class.html#_get_kwargs" class="summary-sig-name" onclick="show_private();">_get_kwargs</a>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="daeso.thirdparty.argparse-pysrc.html#Action._get_kwargs">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__call__"></a><span class="summary-sig-name">__call__</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">parser</span>,
+        <span class="summary-sig-arg">namespace</span>,
+        <span class="summary-sig-arg">values</span>,
+        <span class="summary-sig-arg">option_string</span>=<span class="summary-sig-default">None</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="daeso.thirdparty.argparse-pysrc.html#Action.__call__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="daeso.thirdparty.argparse._AttributeHolder-class.html" onclick="show_private();">_AttributeHolder</a></code></b>:
+      <code><a href="daeso.thirdparty.argparse._AttributeHolder-class.html#__repr__">__repr__</a></code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="daeso.thirdparty.argparse._AttributeHolder-class.html" onclick="show_private();">_AttributeHolder</a></code></b> (private):
+      <code><a href="daeso.thirdparty.argparse._AttributeHolder-class.html#_get_args" onclick="show_private();">_get_args</a></code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__format__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__setattr__</code>,
+      <code>__sizeof__</code>,
+      <code>__str__</code>,
+      <code>__subclasshook__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">option_strings</span>,
+        <span class="sig-arg">dest</span>,
+        <span class="sig-arg">nargs</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">const</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">default</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">type</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">choices</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">required</span>=<span class="sig-default">False</span>,
+        <span class="sig-arg">help</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">metavar</span>=<span class="sig-default">None</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="daeso.thirdparty.argparse-pysrc.html#Action.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>x.__init__(...) initializes x; see help(type(x)) for signature</p>
+  <dl class="fields">
+    <dt>Overrides:
+        object.__init__
+        <dd><em class="note">(inherited documentation)</em></dd>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="_get_kwargs"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_get_kwargs</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="daeso.thirdparty.argparse-pysrc.html#Action._get_kwargs">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="daeso.thirdparty.argparse._AttributeHolder-class.html#_get_kwargs" onclick="show_private();">_AttributeHolder._get_kwargs</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="daeso-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Wed May 29 16:08:23 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

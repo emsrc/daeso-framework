@@ -78,7 +78,10 @@ def get_data_files(data_dir_prefix, dir):
 data_dir = join("share", "%s-%s" % (name, version))
 data_files = [(data_dir, ['CHANGES', 'COPYING', 'INSTALL', 'README'])]
 data_files += get_data_files(data_dir, "doc")
-data_files += get_data_files(data_dir, "data")
+#data_files += get_data_files(data_dir, "data")
+
+sdist_options = dict( 
+    formats=["zip","gztar","bztar"])
 
 setup(
     name = name,
@@ -117,5 +120,6 @@ setup(
         "Topic :: Text Processing :: Linguistic",
         "Topic :: Text Processing :: Markup",
         "Natural Language :: English"
-    ]
+    ],
+    options =               dict(sdist=sdist_options)
 )

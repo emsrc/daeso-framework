@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>daeso.gb.parser</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="daeso-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="daeso-module.html">Package&nbsp;daeso</a> ::
+        <a href="daeso.gb-module.html">Package&nbsp;gb</a> ::
+        Module&nbsp;parser
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="daeso.gb.parser-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="daeso.gb.parser-module.html">Module daeso.gb.parser</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-comment"># -*- coding: utf-8 -*-</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-comment"># Copyright (C) 2007-2013 by Erwin Marsi and TST-Centrale</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-comment"># This file is part of the DAESO Framework.</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-comment"># The DAESO Framework is free software; you can redistribute it and/or modify</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-comment"># it under the terms of the GNU General Public License as published by</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-comment"># the Free Software Foundation; either version 3 of the License, or</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-comment"># (at your option) any later version.</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-comment"># The DAESO Framework is distributed in the hope that it will be useful,</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-comment"># but WITHOUT ANY WARRANTY; without even the implied warranty of</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-comment"># MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-comment"># GNU General Public License for more details.</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-comment"># You should have received a copy of the GNU General Public License</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"><tt class="py-comment"># along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"><tt class="py-docstring">Abstract classes for graphbank parsers</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"><tt class="py-docstring">Defines the interface that each graphbank parser is supposed to support, and</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"><tt class="py-docstring">implements shared methods.</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"><tt class="py-name">__authors__</tt> <tt class="py-op">=</tt> <tt class="py-string">"Erwin Marsi &lt;e.marsi@gmail.com&gt;"</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">xml</tt><tt class="py-op">.</tt><tt class="py-name">parsers</tt> <tt class="py-keyword">import</tt> <tt class="py-name">expat</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Package daeso=daeso-module.html"><a title="daeso" class="py-name" href="#" onclick="return doclink('link-0', 'daeso', 'link-0');">daeso</a></tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Module daeso.exception=daeso.exception-module.html"><a title="daeso.exception" class="py-name" href="#" onclick="return doclink('link-1', 'exception', 'link-1');">exception</a></tt> <tt class="py-keyword">import</tt> <tt id="link-2" class="py-name" targets="Class daeso.exception.DaesoError=daeso.exception.DaesoError-class.html"><a title="daeso.exception.DaesoError" class="py-name" href="#" onclick="return doclink('link-2', 'DaesoError', 'link-2');">DaesoError</a></tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line"> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-3" class="py-name"><a title="daeso" class="py-name" href="#" onclick="return doclink('link-3', 'daeso', 'link-0');">daeso</a></tt><tt class="py-op">.</tt><tt id="link-4" class="py-name" targets="Package daeso.gb=daeso.gb-module.html"><a title="daeso.gb" class="py-name" href="#" onclick="return doclink('link-4', 'gb', 'link-4');">gb</a></tt><tt class="py-op">.</tt><tt id="link-5" class="py-name" targets="Module daeso.gb.graphbank=daeso.gb.graphbank-module.html"><a title="daeso.gb.graphbank" class="py-name" href="#" onclick="return doclink('link-5', 'graphbank', 'link-5');">graphbank</a></tt> <tt class="py-keyword">import</tt> <tt id="link-6" class="py-name" targets="Class daeso.gb.graphbank.GraphBank=daeso.gb.graphbank.GraphBank-class.html"><a title="daeso.gb.graphbank.GraphBank" class="py-name" href="#" onclick="return doclink('link-6', 'GraphBank', 'link-6');">GraphBank</a></tt><tt class="py-op">,</tt> <tt id="link-7" class="py-name" targets="Class daeso.gb.graphbank.SparseGraphBank=daeso.gb.graphbank.SparseGraphBank-class.html"><a title="daeso.gb.graphbank.SparseGraphBank" class="py-name" href="#" onclick="return doclink('link-7', 'SparseGraphBank', 'link-7');">SparseGraphBank</a></tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line"> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line">     </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line">     </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line"> </tt>
+<a name="XmlGraphbankParser"></a><div id="XmlGraphbankParser-def"><a name="L40"></a><tt class="py-lineno"> 40</tt> <a class="py-toggle" href="#" id="XmlGraphbankParser-toggle" onclick="return toggle('XmlGraphbankParser');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="daeso.gb.parser.XmlGraphbankParser-class.html">XmlGraphbankParser</a><tt class="py-op">(</tt><tt class="py-base-class">object</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="XmlGraphbankParser-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="XmlGraphbankParser-expanded"><a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line"><tt class="py-docstring">    Abstract class for expat-based parser of graphbanks in XML format</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line">    <tt class="py-comment"># This class is called while parsing a parallel graph corpus (from</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line">    <tt class="py-comment"># PGCParser) or while aligning individual sentences in the  </tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line">     </tt>
+<a name="XmlGraphbankParser.__init__"></a><div id="XmlGraphbankParser.__init__-def"><a name="L47"></a><tt class="py-lineno"> 47</tt> <a class="py-toggle" href="#" id="XmlGraphbankParser.__init__-toggle" onclick="return toggle('XmlGraphbankParser.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="daeso.gb.parser.XmlGraphbankParser-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="XmlGraphbankParser.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="XmlGraphbankParser.__init__-expanded"><a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_parser</tt> <tt class="py-op">=</tt> <tt class="py-name">expat</tt><tt class="py-op">.</tt><tt class="py-name">ParserCreate</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_parser</tt><tt class="py-op">.</tt><tt class="py-name">StartElementHandler</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-8" class="py-name" targets="Method daeso.gb.graphml.GraphmlParser._start_element()=daeso.gb.graphml.GraphmlParser-class.html#_start_element,Method daeso.gb.parser.XmlGraphbankParser._start_element()=daeso.gb.parser.XmlGraphbankParser-class.html#_start_element"><a title="daeso.gb.graphml.GraphmlParser._start_element
+daeso.gb.parser.XmlGraphbankParser._start_element" class="py-name" href="#" onclick="return doclink('link-8', '_start_element', 'link-8');">_start_element</a></tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_parser</tt><tt class="py-op">.</tt><tt class="py-name">EndElementHandler</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-9" class="py-name" targets="Method daeso.gb.graphml.GraphmlParser._end_element()=daeso.gb.graphml.GraphmlParser-class.html#_end_element,Method daeso.gb.parser.XmlGraphbankParser._end_element()=daeso.gb.parser.XmlGraphbankParser-class.html#_end_element"><a title="daeso.gb.graphml.GraphmlParser._end_element
+daeso.gb.parser.XmlGraphbankParser._end_element" class="py-name" href="#" onclick="return doclink('link-9', '_end_element', 'link-9');">_end_element</a></tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_parser</tt><tt class="py-op">.</tt><tt class="py-name">CharacterDataHandler</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-10" class="py-name" targets="Method daeso.gb.graphml.GraphmlParser._char_data()=daeso.gb.graphml.GraphmlParser-class.html#_char_data,Method daeso.gb.parser.XmlGraphbankParser._char_data()=daeso.gb.parser.XmlGraphbankParser-class.html#_char_data"><a title="daeso.gb.graphml.GraphmlParser._char_data
+daeso.gb.parser.XmlGraphbankParser._char_data" class="py-name" href="#" onclick="return doclink('link-10', '_char_data', 'link-10');">_char_data</a></tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_id2graph</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_sparse</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+</div><a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">     </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">         </tt>
+<a name="XmlGraphbankParser.parse_string"></a><div id="XmlGraphbankParser.parse_string-def"><a name="L56"></a><tt class="py-lineno"> 56</tt> <a class="py-toggle" href="#" id="XmlGraphbankParser.parse_string-toggle" onclick="return toggle('XmlGraphbankParser.parse_string');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="daeso.gb.parser.XmlGraphbankParser-class.html#parse_string">parse_string</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">data</tt><tt class="py-op">,</tt> <tt class="py-param">id2graph</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-param">sparse</tt><tt class="py-op">=</tt><tt class="py-name">False</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="XmlGraphbankParser.parse_string-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="XmlGraphbankParser.parse_string-expanded"><a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">        <tt class="py-comment"># supports incremental parsing</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_id2graph</tt> <tt class="py-op">=</tt> <tt class="py-name">id2graph</tt> <tt class="py-keyword">or</tt> <tt class="py-op">{</tt><tt class="py-op">}</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_sparse</tt> <tt class="py-op">=</tt> <tt class="py-name">sparse</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line"> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_parser</tt><tt class="py-op">.</tt><tt class="py-name">Parse</tt><tt class="py-op">(</tt><tt class="py-name">data</tt><tt class="py-op">,</tt> <tt class="py-number">0</tt><tt class="py-op">)</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">         </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_sparse</tt><tt class="py-op">:</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-11" class="py-name" targets="Method daeso.gb.parser.XmlGraphbankParser._check_for_unresolved_graphs()=daeso.gb.parser.XmlGraphbankParser-class.html#_check_for_unresolved_graphs"><a title="daeso.gb.parser.XmlGraphbankParser._check_for_unresolved_graphs" class="py-name" href="#" onclick="return doclink('link-11', '_check_for_unresolved_graphs', 'link-11');">_check_for_unresolved_graphs</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">             </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_id2graph</tt> </tt>
+</div><a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line"> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">         </tt>
+<a name="XmlGraphbankParser.close"></a><div id="XmlGraphbankParser.close-def"><a name="L69"></a><tt class="py-lineno"> 69</tt> <a class="py-toggle" href="#" id="XmlGraphbankParser.close-toggle" onclick="return toggle('XmlGraphbankParser.close');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="daeso.gb.parser.XmlGraphbankParser-class.html#close">close</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="XmlGraphbankParser.close-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="XmlGraphbankParser.close-expanded"><a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_parser</tt><tt class="py-op">.</tt><tt class="py-name">Parse</tt><tt class="py-op">(</tt><tt class="py-string">""</tt><tt class="py-op">,</tt> <tt class="py-number">1</tt><tt class="py-op">)</tt> <tt class="py-comment"># end of data</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">        <tt class="py-keyword">del</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_parser</tt> <tt class="py-comment"># get rid of circular references</tt> </tt>
+</div><a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line">         </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">         </tt>
+<a name="XmlGraphbankParser.parse_file"></a><div id="XmlGraphbankParser.parse_file-def"><a name="L74"></a><tt class="py-lineno"> 74</tt> <a class="py-toggle" href="#" id="XmlGraphbankParser.parse_file-toggle" onclick="return toggle('XmlGraphbankParser.parse_file');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="daeso.gb.parser.XmlGraphbankParser-class.html#parse_file">parse_file</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">inf</tt><tt class="py-op">,</tt> <tt class="py-param">id2graph</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-param">sparse</tt><tt class="py-op">=</tt><tt class="py-name">False</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="XmlGraphbankParser.parse_file-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="XmlGraphbankParser.parse_file-expanded"><a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">hasattr</tt><tt class="py-op">(</tt><tt class="py-name">inf</tt><tt class="py-op">,</tt> <tt class="py-string">"read"</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line">            <tt class="py-name">inf</tt> <tt class="py-op">=</tt> <tt class="py-name">open</tt><tt class="py-op">(</tt><tt class="py-name">inf</tt><tt class="py-op">)</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">             </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_id2graph</tt> <tt class="py-op">=</tt> <tt class="py-name">id2graph</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_sparse</tt> <tt class="py-op">=</tt> <tt class="py-name">sparse</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line">         </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_parser</tt><tt class="py-op">.</tt><tt class="py-name">ParseFile</tt><tt class="py-op">(</tt><tt class="py-name">inf</tt><tt class="py-op">)</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line">        <tt class="py-comment">##del self._parser </tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">         </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_sparse</tt><tt class="py-op">:</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-12" class="py-name"><a title="daeso.gb.parser.XmlGraphbankParser._check_for_unresolved_graphs" class="py-name" href="#" onclick="return doclink('link-12', '_check_for_unresolved_graphs', 'link-11');">_check_for_unresolved_graphs</a></tt><tt class="py-op">(</tt><tt class="py-name">inf</tt><tt class="py-op">)</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">             </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_id2graph</tt> </tt>
+</div><a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">     </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">             </tt>
+<a name="XmlGraphbankParser._check_for_unresolved_graphs"></a><div id="XmlGraphbankParser._check_for_unresolved_graphs-def"><a name="L90"></a><tt class="py-lineno"> 90</tt> <a class="py-toggle" href="#" id="XmlGraphbankParser._check_for_unresolved_graphs-toggle" onclick="return toggle('XmlGraphbankParser._check_for_unresolved_graphs');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="daeso.gb.parser.XmlGraphbankParser-class.html#_check_for_unresolved_graphs">_check_for_unresolved_graphs</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">inf</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="XmlGraphbankParser._check_for_unresolved_graphs-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="XmlGraphbankParser._check_for_unresolved_graphs-expanded"><a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">        <tt class="py-name">unresolved</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt> <tt class="py-string">'"{0}"'</tt><tt class="py-op">.</tt><tt class="py-name">format</tt><tt class="py-op">(</tt><tt class="py-name">id</tt><tt class="py-op">)</tt>  </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line">                       <tt class="py-keyword">for</tt> <tt class="py-op">(</tt><tt class="py-name">id</tt><tt class="py-op">,</tt> <tt id="link-13" class="py-name" targets="Package daeso.graph=daeso.graph-module.html"><a title="daeso.graph" class="py-name" href="#" onclick="return doclink('link-13', 'graph', 'link-13');">graph</a></tt><tt class="py-op">)</tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_id2graph</tt><tt class="py-op">.</tt><tt id="link-14" class="py-name" targets="Method daeso.thirdparty.odict.OrderedDict.items()=daeso.thirdparty.odict.OrderedDict-class.html#items"><a title="daeso.thirdparty.odict.OrderedDict.items" class="py-name" href="#" onclick="return doclink('link-14', 'items', 'link-14');">items</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt>  </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line">                       <tt class="py-keyword">if</tt> <tt id="link-15" class="py-name"><a title="daeso.graph" class="py-name" href="#" onclick="return doclink('link-15', 'graph', 'link-13');">graph</a></tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt> <tt class="py-op">]</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">     </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">unresolved</tt><tt class="py-op">:</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">            <tt class="py-name">msg</tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt> <tt class="py-string">"graphs with the following id's were not found"</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">                    <tt class="py-string">' in graphbank file "{0}": {1}'</tt><tt class="py-op">.</tt><tt class="py-name">format</tt><tt class="py-op">(</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">                        <tt class="py-name">inf</tt><tt class="py-op">.</tt><tt class="py-name">name</tt><tt class="py-op">,</tt>  </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">                        <tt class="py-string">", "</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">unresolved</tt><tt class="py-op">)</tt> <tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt id="link-16" class="py-name"><a title="daeso.exception.DaesoError" class="py-name" href="#" onclick="return doclink('link-16', 'DaesoError', 'link-2');">DaesoError</a></tt><tt class="py-op">(</tt><tt class="py-name">msg</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">         </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line"> </tt>
+<a name="XmlGraphbankParser._start_element"></a><div id="XmlGraphbankParser._start_element-def"><a name="L103"></a><tt class="py-lineno">103</tt> <a class="py-toggle" href="#" id="XmlGraphbankParser._start_element-toggle" onclick="return toggle('XmlGraphbankParser._start_element');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="daeso.gb.parser.XmlGraphbankParser-class.html#_start_element">_start_element</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">tag</tt><tt class="py-op">,</tt> <tt class="py-param">attrs</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="XmlGraphbankParser._start_element-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="XmlGraphbankParser._start_element-expanded"><a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">        <tt class="py-name">NotImplemented</tt> </tt>
+</div><a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line"> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">     </tt>
+<a name="XmlGraphbankParser._end_element"></a><div id="XmlGraphbankParser._end_element-def"><a name="L107"></a><tt class="py-lineno">107</tt> <a class="py-toggle" href="#" id="XmlGraphbankParser._end_element-toggle" onclick="return toggle('XmlGraphbankParser._end_element');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="daeso.gb.parser.XmlGraphbankParser-class.html#_end_element">_end_element</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">tag</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="XmlGraphbankParser._end_element-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="XmlGraphbankParser._end_element-expanded"><a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line">        <tt class="py-name">NotImplemented</tt> </tt>
+</div><a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line"> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line">     </tt>
+<a name="XmlGraphbankParser._char_data"></a><div id="XmlGraphbankParser._char_data-def"><a name="L111"></a><tt class="py-lineno">111</tt> <a class="py-toggle" href="#" id="XmlGraphbankParser._char_data-toggle" onclick="return toggle('XmlGraphbankParser._char_data');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="daeso.gb.parser.XmlGraphbankParser-class.html#_char_data">_char_data</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">data</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="XmlGraphbankParser._char_data-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="XmlGraphbankParser._char_data-expanded"><a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line">        <tt class="py-name">NotImplemented</tt> </tt>
+</div></div><a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="daeso-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Wed May 29 16:08:25 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

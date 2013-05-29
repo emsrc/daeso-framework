@@ -1,0 +1,555 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>daeso.thirdparty.munkres</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="daeso-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="daeso-module.html">Package&nbsp;daeso</a> ::
+        <a href="daeso.thirdparty-module.html">Package&nbsp;thirdparty</a> ::
+        Module&nbsp;munkres
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="daeso.thirdparty.munkres-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module munkres</h1><p class="nomargin-top"><span class="codelink"><a href="daeso.thirdparty.munkres-pysrc.html">source&nbsp;code</a></span></p>
+<div class="rst-section" id="rst-introduction">
+<h1 class="heading">Introduction</h1>
+<p>The Munkres module provides an implementation of the Munkres algorithm
+(also called the Hungarian algorithm or the Kuhn-Munkres algorithm),
+useful for solving the Assignment Problem.</p>
+</div>
+<div class="rst-section" id="rst-assignment-problem">
+<h1 class="heading">Assignment Problem</h1>
+<p>Let <em>C</em> be an <em>n</em>x<em>n</em> matrix representing the costs of each of <em>n</em> workers
+to perform any of <em>n</em> jobs. The assignment problem is to assign jobs to
+workers in a way that minimizes the total cost. Since each worker can perform
+only one job and each job can be assigned to only one worker the assignments
+represent an independent set of the matrix <em>C</em>.</p>
+<p>One way to generate the optimal set is to create all permutations of
+the indexes necessary to traverse the matrix so that no row and column
+are used more than once. For instance, given this matrix (expressed in
+Python):</p>
+<pre class="py-doctest">
+matrix = [[5, 9, 1],
+          [10, 3, 2],
+          [8, 7, 4]]</pre>
+<p>You could use this code to generate the traversal indexes:</p>
+<pre class="py-doctest">
+<span class="py-keyword">def</span> <span class="py-defname">permute</span>(a, results):
+    <span class="py-keyword">if</span> len(a) == 1:
+        results.insert(len(results), a)
+
+    <span class="py-keyword">else</span>:
+        <span class="py-keyword">for</span> i <span class="py-keyword">in</span> range(0, len(a)):
+            element = a[i]
+            a_copy = [a[j] <span class="py-keyword">for</span> j <span class="py-keyword">in</span> range(0, len(a)) <span class="py-keyword">if</span> j != i]
+            subresults = []
+            permute(a_copy, subresults)
+            <span class="py-keyword">for</span> subresult <span class="py-keyword">in</span> subresults:
+                result = [element] + subresult
+                results.insert(len(results), result)
+
+results = []
+permute(range(len(matrix)), results) <span class="py-comment"># [0, 1, 2] for a 3x3 matrix</span></pre>
+<p>After the call to permute(), the results matrix would look like this:</p>
+<pre class="rst-literal-block">
+[[0, 1, 2],
+ [0, 2, 1],
+ [1, 0, 2],
+ [1, 2, 0],
+ [2, 0, 1],
+ [2, 1, 0]]
+</pre>
+<p>You could then use that index matrix to loop over the original cost matrix
+and calculate the smallest cost of the combinations:</p>
+<pre class="py-doctest">
+n = len(matrix)
+minval = sys.maxint
+<span class="py-keyword">for</span> row <span class="py-keyword">in</span> range(n):
+    cost = 0
+    <span class="py-keyword">for</span> col <span class="py-keyword">in</span> range(n):
+        cost += matrix[row][col]
+    minval = min(cost, minval)
+
+<span class="py-keyword">print</span> minval</pre>
+<p>While this approach works fine for small matrices, it does not scale. It
+executes in O(<em>n</em>!) time: Calculating the permutations for an <em>n</em>x<em>n</em>
+matrix requires <em>n</em>! operations. For a 12x12 matrix, that's 479,001,600
+traversals. Even if you could manage to perform each traversal in just one
+millisecond, it would still take more than 133 hours to perform the entire
+traversal. A 20x20 matrix would take 2,432,902,008,176,640,000 operations. At
+an optimistic millisecond per operation, that's more than 77 million years.</p>
+<p>The Munkres algorithm runs in O(<em>n</em>^3) time, rather than O(<em>n</em>!). This
+package provides an implementation of that algorithm.</p>
+<p>This version is based on
+<a class="rst-reference external" href="http://www.public.iastate.edu/~ddoty/HungarianAlgorithm.html" target="_top">http://www.public.iastate.edu/~ddoty/HungarianAlgorithm.html</a>.</p>
+<p>This version was written for Python by Brian Clapper from the (Ada) algorithm
+at the above web site. (The <tt class="rst-docutils literal"><span class="pre">Algorithm::Munkres</span></tt> Perl version, in CPAN, was
+clearly adapted from the same web site.)</p>
+</div>
+<div class="rst-section" id="rst-usage">
+<h1 class="heading">Usage</h1>
+<p>Construct a Munkres object:</p>
+<pre class="py-doctest">
+<span class="py-keyword">from</span> munkres <span class="py-keyword">import</span> Munkres
+
+m = Munkres()</pre>
+<p>Then use it to compute the lowest cost assignment from a cost matrix. Here's
+a sample program:</p>
+<pre class="py-doctest">
+<span class="py-keyword">from</span> munkres <span class="py-keyword">import</span> Munkres, print_matrix
+
+matrix = [[5, 9, 1],
+          [10, 3, 2],
+          [8, 7, 4]]
+m = Munkres()
+indexes = m.compute(matrix)
+print_matrix(<span class="py-string">'Lowest cost through this matrix:'</span>, matrix)
+total = 0
+<span class="py-keyword">for</span> row, column <span class="py-keyword">in</span> indexes:
+    value = matrix[row][column]
+    total += value
+    <span class="py-keyword">print</span> <span class="py-string">'(%d, %d) -&gt; %d'</span> % (row, column, value)
+<span class="py-keyword">print</span> <span class="py-string">'total cost: %d'</span> % total</pre>
+<p>Running that program produces:</p>
+<pre class="rst-literal-block">
+Lowest cost through this matrix:
+[5, 9, 1]
+[10, 3, 2]
+[8, 7, 4]
+(0, 0) -&gt; 5
+(1, 1) -&gt; 3
+(2, 2) -&gt; 4
+total cost=12
+</pre>
+<p>The instantiated Munkres object can be used multiple times on different
+matrices.</p>
+</div>
+<div class="rst-section" id="rst-non-square-cost-matrices">
+<h1 class="heading">Non-square Cost Matrices</h1>
+<p>The Munkres algorithm assumes that the cost matrix is square. However, it's
+possible to use a rectangular matrix if you first pad it with 0 values to make
+it square. This module automatically pads rectangular cost matrices to make
+them square.</p>
+<p>Notes:</p>
+<ul class="rst-simple">
+<li>The module operates on a <em>copy</em> of the caller's matrix, so any padding will
+not be seen by the caller.</li>
+<li>The cost matrix must be rectangular or square. An irregular matrix will
+<em>not</em> work.</li>
+</ul>
+</div>
+<div class="rst-section" id="rst-calculating-profit-rather-than-cost">
+<h1 class="heading">Calculating Profit, Rather than Cost</h1>
+<p>The cost matrix is just that: A cost matrix. The Munkres algorithm finds
+the combination of elements (one from each row and column) that results in
+the smallest cost. It's also possible to use the algorithm to maximize
+profit. To do that, however, you have to convert your profit matrix to a
+cost matrix. The simplest way to do that is to subtract all elements from a
+large value. For example:</p>
+<pre class="py-doctest">
+<span class="py-keyword">from</span> munkres <span class="py-keyword">import</span> Munkres, print_matrix
+
+matrix = [[5, 9, 1],
+          [10, 3, 2],
+          [8, 7, 4]]
+cost_matrix = []
+<span class="py-keyword">for</span> row <span class="py-keyword">in</span> matrix:
+    cost_row = []
+    <span class="py-keyword">for</span> col <span class="py-keyword">in</span> row:
+        cost_row += [sys.maxint - col]
+    cost_matrix += [cost_row]
+
+m = Munkres()
+indexes = m.compute(cost_matrix)
+print_matrix(<span class="py-string">'Lowest cost through this matrix:'</span>, matrix)
+total = 0
+<span class="py-keyword">for</span> row, column <span class="py-keyword">in</span> indexes:
+    value = matrix[row][column]
+    total += value
+    <span class="py-keyword">print</span> <span class="py-string">'(%d, %d) -&gt; %d'</span> % (row, column, value)
+
+<span class="py-keyword">print</span> <span class="py-string">'total profit=%d'</span> % total</pre>
+<p>Running that program produces:</p>
+<pre class="rst-literal-block">
+Highest profit through this matrix:
+[5, 9, 1]
+[10, 3, 2]
+[8, 7, 4]
+(0, 1) -&gt; 9
+(1, 0) -&gt; 10
+(2, 2) -&gt; 4
+total profit=23
+</pre>
+<p>The <tt class="rst-docutils literal">munkres</tt> module provides a convenience method for creating a cost
+matrix from a profit matrix. Since it doesn't know whether the matrix contains
+floating point numbers, decimals, or integers, you have to provide the
+conversion function; but the convenience method takes care of the actual
+creation of the cost matrix:</p>
+<pre class="py-doctest">
+<span class="py-keyword">import</span> munkres
+
+cost_matrix = munkres.make_cost_matrix(matrix,
+                                       <span class="py-keyword">lambda</span> cost: sys.maxint - cost)</pre>
+<p>So, the above profit-calculation program can be recast as:</p>
+<pre class="py-doctest">
+<span class="py-keyword">from</span> munkres <span class="py-keyword">import</span> Munkres, print_matrix, make_cost_matrix
+
+matrix = [[5, 9, 1],
+          [10, 3, 2],
+          [8, 7, 4]]
+cost_matrix = make_cost_matrix(matrix, <span class="py-keyword">lambda</span> cost: sys.maxint - cost)
+m = Munkres()
+indexes = m.compute(cost_matrix)
+print_matrix(<span class="py-string">'Lowest cost through this matrix:'</span>, matrix)
+total = 0
+<span class="py-keyword">for</span> row, column <span class="py-keyword">in</span> indexes:
+    value = matrix[row][column]
+    total += value
+    <span class="py-keyword">print</span> <span class="py-string">'(%d, %d) -&gt; %d'</span> % (row, column, value)
+<span class="py-keyword">print</span> <span class="py-string">'total profit=%d'</span> % total</pre>
+</div>
+<div class="rst-section" id="rst-references">
+<h1 class="heading">References</h1>
+<ol class="rst-arabic simple">
+<li><a class="rst-reference external" href="http://www.public.iastate.edu/~ddoty/HungarianAlgorithm.html" target="_top">http://www.public.iastate.edu/~ddoty/HungarianAlgorithm.html</a></li>
+<li>Harold W. Kuhn. The Hungarian Method for the assignment problem.
+<em>Naval Research Logistics Quarterly</em>, 2:83-97, 1955.</li>
+<li>Harold W. Kuhn. Variants of the Hungarian method for assignment
+problems. <em>Naval Research Logistics Quarterly</em>, 3: 253-258, 1956.</li>
+<li>Munkres, J. Algorithms for the Assignment and Transportation Problems.
+<em>Journal of the Society of Industrial and Applied Mathematics</em>,
+5(1):32-38, March, 1957.</li>
+<li><a class="rst-reference external" href="http://en.wikipedia.org/wiki/Hungarian_algorithm" target="_top">http://en.wikipedia.org/wiki/Hungarian_algorithm</a></li>
+</ol>
+</div>
+<div class="rst-section" id="rst-copyright-and-license">
+<h1 class="heading">Copyright and License</h1>
+<p>Copyright &#169; 2008 Brian M. Clapper</p>
+<p>This is free software, released under the following BSD-like license:</p>
+<p>Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:</p>
+<ol class="rst-arabic">
+<li><p class="rst-first">Redistributions of source code must retain the above copyright notice,
+this list of conditions and the following disclaimer.</p>
+</li>
+<li><p class="rst-first">The end-user documentation included with the redistribution, if any,
+must include the following acknowlegement:</p>
+<p>This product includes software developed by Brian M. Clapper
+(<a class="rst-reference external" href="mailto:bmc&#64;clapper.org" target="_top">bmc&#64;clapper.org</a>, <a class="rst-reference external" href="http://www.clapper.org/bmc/" target="_top">http://www.clapper.org/bmc/</a>). That software is
+copyright (c) 2008 Brian M. Clapper.</p>
+<p>Alternately, this acknowlegement may appear in the software itself, if
+and wherever such third-party acknowlegements normally appear.</p>
+</li>
+</ol>
+<p>THIS SOFTWARE IS PROVIDED <strong>AS IS</strong>, AND ANY EXPRESSED OR IMPLIED
+WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO
+EVENT SHALL BRIAN M. CLAPPER BE LIABLE FOR ANY DIRECT, INDIRECT,
+INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
+THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+<p><tt class="rst-docutils literal">$Id: munkres.py 1269 <span class="pre">2010-03-10</span> 05:03:59Z emarsi $</tt></p>
+</div>
+
+<hr />
+<div class="fields">      <p><strong>Version:</strong>
+        1.0.5.2
+      </p>
+      <p><strong>Author:</strong>
+        Brian Clapper, bmc@clapper.org
+      </p>
+      <p><strong>Copyright:</strong>
+        (c) 2008 Brian M. Clapper
+      </p>
+      <p><strong>License:</strong>
+        BSD-style license
+      </p>
+</div><!-- ==================== CLASSES ==================== -->
+<a name="section-Classes"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Classes</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Classes"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="daeso.thirdparty.munkres.Munkres-class.html" class="summary-name">Munkres</a><br />
+      Calculate the Munkres solution to the classical assignment problem.
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">list of lists</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="daeso.thirdparty.munkres-module.html#make_cost_matrix" class="summary-sig-name">make_cost_matrix</a>(<span class="summary-sig-arg">profit_matrix</span>,
+        <span class="summary-sig-arg">inversion_function</span>)</span><br />
+      Create a cost matrix from a profit matrix by calling
+'inversion_function' to invert each value.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="daeso.thirdparty.munkres-pysrc.html#make_cost_matrix">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="daeso.thirdparty.munkres-module.html#print_matrix" class="summary-sig-name" onclick="show_private();">print_matrix</a>(<span class="summary-sig-arg">matrix</span>,
+        <span class="summary-sig-arg">msg</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Convenience function: Displays the contents of a matrix of integers.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="daeso.thirdparty.munkres-pysrc.html#print_matrix">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Variables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__url__"></a><span class="summary-name">__url__</span> = <code title="'http://www.clapper.org/software/python/munkres/'"><code class="variable-quote">'</code><code class="variable-string">http://www.clapper.org/software/python/munkres/</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="'daeso.thirdparty'"><code class="variable-quote">'</code><code class="variable-string">daeso.thirdparty</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Function Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-FunctionDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="make_cost_matrix"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">make_cost_matrix</span>(<span class="sig-arg">profit_matrix</span>,
+        <span class="sig-arg">inversion_function</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="daeso.thirdparty.munkres-pysrc.html#make_cost_matrix">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Create a cost matrix from a profit matrix by calling
+'inversion_function' to invert each value. The inversion
+function must take one numeric argument (of any type) and return
+another numeric argument which is presumed to be the cost inverse
+of the original profit.</p>
+<p>This is a static method. Call it like this:</p>
+<pre class="py-doctest">
+cost_matrix = Munkres.make_cost_matrix(matrix, inversion_func)</pre>
+<p>For example:</p>
+<pre class="py-doctest">
+cost_matrix = Munkres.make_cost_matrix(matrix, <span class="py-keyword">lambda</span> x : sys.maxint - x)</pre>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>profit_matrix</code></strong> (list of lists) - The matrix to convert from a profit to a cost matrix</li>
+        <li><strong class="pname"><code>inversion_function</code></strong> (function) - The function to use to invert each entry in the profit matrix</li>
+    </ul></dd>
+    <dt>Returns: list of lists</dt>
+        <dd>The converted matrix</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="print_matrix"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">print_matrix</span>(<span class="sig-arg">matrix</span>,
+        <span class="sig-arg">msg</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="daeso.thirdparty.munkres-pysrc.html#print_matrix">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  Convenience function: Displays the contents of a matrix of integers.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>matrix</code></strong> (list of lists) - Matrix to print</li>
+        <li><strong class="pname"><code>msg</code></strong> (str) - Optional message to print before displaying the matrix</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="daeso-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Wed May 29 16:08:23 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

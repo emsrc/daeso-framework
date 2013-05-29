@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>daeso.pgc.evaluate</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="daeso-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="daeso-module.html">Package&nbsp;daeso</a> ::
+        <a href="daeso.pgc-module.html">Package&nbsp;pgc</a> ::
+        Module&nbsp;evaluate
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="daeso.pgc.evaluate-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module evaluate</h1><p class="nomargin-top"><span class="codelink"><a href="daeso.pgc.evaluate-pysrc.html">source&nbsp;code</a></span></p>
+<pre class="literalblock">
+
+Evaluation of alignment by comparing a corpus containing predicted alignments with
+a reference corpus containing true alignments.
+
+
+EVALUATION OF ALIGNMENT
+
+An (unlabeled) alignment consists of a set of node pairs &lt;n,m&gt; where n is a
+node of the source tree and m is a noe of the target tree. Given a set of true
+and predicted alignments
+
+    A_true = { &lt;n1,m1&gt;, &lt;n2,m2&gt;, ... }
+    A_pred = { &lt;n1',m1'&gt;, &lt;n2',m2'&gt;, ... }
+
+the recall, precision and F-score are defined as 
+
+
+              | intersection(A_true, A_pred) |
+    recall = ----------------------------------
+                        | A_true |                
+
+
+                        
+                 | intersection(A_true, A_pred) |
+    precision = ----------------------------------
+                         | A_pred |   
+
+
+              2
+         (beta  + 1) * prec * rec
+    F =  ------------------------
+                2 
+            beta  * prec + rec
+            
+            
+where 0 &lt;= beta &lt;= 1.
+
+
+As a shorthand, the following three counts are used:
+
+    True ;= | A_true |
+    Pred := | A_pred |
+    Common := | intersection(A_true, A_pred) |
+    
+hence recall=Common/True and precision=Common/Pred. 
+    
+Whenever True or Pred is zero, the recall and precision respectively are
+technically undefined. For convenience, however, the implementation returns
+zero. The same goes for the F score when both precision and recall equals
+zero.
+
+
+EVALUATION OF LABELED ALIGNMENT
+
+A labeled alignment consists of a set of tuples &lt;n,m, l&gt; where n is a node of
+the source tree, m is a node of the target tree, and l is the relation label.
+Given a set of true and predicted alignments
+
+    A_true = { &lt;n1,m1, l1&gt;, &lt;n2,m2,l2&gt;, ... }
+    A_pred = { &lt;n1',m1',l1'&gt;, &lt;n2',m2',l2'&gt;, ... }
+
+the micro recall, precision and F-score are defined the same as above.
+
+The score on a particular label is calculated by first restrictng A_true and
+A_pred to only those tuples with that label, disregarding all tuples with
+other labels, and then again calculating precision, recall and F score in the
+above way.
+
+The overall macro recall, precision and F-score are calculating by taking the
+average over the scores on each relation label. In contrast to the micro
+scores, the macro scores ignores the fact that the distribution of the labels
+may be skewed.
+
+MULTIPLE CORPORA
+
+For multiple corpora, first counts and scores are calculated for each separate
+corpus, and then average scores are calculated. The macro avarage is the
+avarage over all separate score. The micro avarage is calculated by first
+summing the counts of True, Pred and Common respectively, and then computing
+precision, recall and F-score over these summed counts.
+
+</pre>
+
+<hr />
+<div class="fields">      <p><strong>Author:</strong>
+        Erwin Marsi &lt;e.marsi@gmail.com&gt;
+      </p>
+</div><!-- ==================== CLASSES ==================== -->
+<a name="section-Classes"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Classes</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Classes"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="daeso.pgc.evaluate.AlignEval-class.html" class="summary-name">AlignEval</a><br />
+      Alignment Evaluation
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="daeso.pgc.evaluate.AlignCountsTable-class.html" class="summary-name" onclick="show_private();">AlignCountsTable</a><br />
+      Alignment Counts Table
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="daeso.pgc.evaluate.AlignCounts-class.html" class="summary-name" onclick="show_private();">AlignCounts</a><br />
+      A class for counting true, predicted and common alignments ,and for
+        evaluating alignment counts in terms of precison, recall and 
+        F-score.
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Variables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="'daeso.pgc'"><code class="variable-quote">'</code><code class="variable-string">daeso.pgc</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="daeso-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Wed May 29 16:08:23 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

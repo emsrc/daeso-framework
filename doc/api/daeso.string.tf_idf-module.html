@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>daeso.string.tf_idf</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="daeso-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="daeso-module.html">Package&nbsp;daeso</a> ::
+        <a href="daeso.string-module.html">Package&nbsp;string</a> ::
+        Module&nbsp;tf_idf
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="daeso.string.tf_idf-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module tf_idf</h1><p class="nomargin-top"><span class="codelink"><a href="daeso.string.tf_idf-pysrc.html">source&nbsp;code</a></span></p>
+<pre class="literalblock">
+
+tf*idf weights (term frequency&#226;&#128;&#147;inverse document frequency)
+
+@book{SaltonMcGill:1983,
+    Address = {New York},
+    Author = {Gerard Salton and Michael McGill},
+    Publisher = {McGraw-Hill, Inc.},
+    Title = {Introduction to Modern Information Retrieval},
+    Year = 1983}
+
+</pre>
+
+<hr />
+<div class="fields">      <p><strong>Author:</strong>
+        Erwin Marsi &lt;e.marsi@gmail.com&gt;
+      </p>
+</div><!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="daeso.string.tf_idf-module.html#idf" class="summary-sig-name">idf</a>(<span class="summary-sig-arg">terms_per_doc</span>,
+        <span class="summary-sig-arg">normalized</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Description</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="daeso.string.tf_idf-pysrc.html#idf">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="daeso.string.tf_idf-module.html#tf_idf" class="summary-sig-name">tf_idf</a>(<span class="summary-sig-arg">terms_per_doc</span>,
+        <span class="summary-sig-arg">normalized</span>=<span class="summary-sig-default">False</span>,
+        <span class="summary-sig-arg">indicator</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Description</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="daeso.string.tf_idf-pysrc.html#tf_idf">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="calculate_document_frequencies"></a><span class="summary-sig-name">calculate_document_frequencies</span>(<span class="summary-sig-arg">term_freq_per_doc</span>)</span><br />
+      returns a table that for each term counts in how many of the 
+      *documents* it occurred</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="daeso.string.tf_idf-pysrc.html#calculate_document_frequencies">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="calculate_term_frequencies"></a><span class="summary-sig-name">calculate_term_frequencies</span>(<span class="summary-sig-arg">terms_per_doc</span>)</span><br />
+      takes terms per document, in the form of a list of document term 
+      lists, and produces term counts per document, in the form of a list 
+      of dicts where keys are terms and values are counts (per document)</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="daeso.string.tf_idf-pysrc.html#calculate_term_frequencies">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Variables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="'daeso.string'"><code class="variable-quote">'</code><code class="variable-string">daeso.string</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Function Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-FunctionDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="idf"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">idf</span>(<span class="sig-arg">terms_per_doc</span>,
+        <span class="sig-arg">normalized</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="daeso.string.tf_idf-pysrc.html#idf">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+    Description
+    
+        calculates idf (inverse document frequency)
+        weights for terms in a collection of documents
+    
+    1st argument: doc_terms_collection
+    
+        A collection of document terms in the form a list of lists where
+        each embedded list specifies the terms in a particular document.
+    
+    Return value
+    
+        The idf term weights in the form of a list of lists where each
+        embedded list contains the weights of the corresponding terms in
+        doc_terms_collection.
+        
+    Examples
+    
+        doc_terms_collection = [ [&quot;t1&quot;, &quot;t2&quot;, &quot;t1&quot;, &quot;t3&quot;],
+                                 [&quot;t4&quot;, &quot;t1&quot;, &quot;t2&quot;, &quot;t2&quot;] ]
+                                 
+        tf_idf(doc_terms_collection) == [
+TODO
+             ]
+        
+    Notes
+    
+        The input consists of document terms (tokens) rather than documents,
+        so you can do your own preprocessing (removing stopwords, stemming,
+        etc.)
+    
+        The implementation is not very efficient and probably not suitable for
+        processing large document collections.
+    
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="tf_idf"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">tf_idf</span>(<span class="sig-arg">terms_per_doc</span>,
+        <span class="sig-arg">normalized</span>=<span class="sig-default">False</span>,
+        <span class="sig-arg">indicator</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="daeso.string.tf_idf-pysrc.html#tf_idf">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Description
+
+    calculates tf*idf (term frequency&#8211;inverse document frequency)
+    weights for terms in a collection of documents
+
+1st argument: doc_terms_collection
+
+    A collection of document terms in the form a list of lists where
+    each embedded list specifies the terms in a particular document.
+
+Return value
+
+    The tf*idf term weights in the form of a list of lists where each
+    embedded list contains the weights of the corresponding terms in
+    doc_terms_collection.
+    
+Examples
+
+    doc_terms_collection = [ [&quot;t1&quot;, &quot;t2&quot;, &quot;t1&quot;, &quot;t3&quot;],
+                             [&quot;t4&quot;, &quot;t1&quot;, &quot;t2&quot;, &quot;t2&quot;] ]
+                             
+    tf_idf(doc_terms_collection) == [
+       [ -0.20273255405408222, -0.10136627702704111, 
+         -0.20273255405408222, 0.17328679513998632 ], 
+       [ 0.17328679513998632, -0.10136627702704111, 
+         -0.20273255405408222, -0.20273255405408222] ]
+    
+Notes
+
+    The input consists of document terms (tokens) rather than documents,
+    so you can do your own preprocessing (removing stopwords, stemming,
+    etc.)
+
+    The implementation is not very efficient and probably not suitable for
+    processing large document collections.
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="daeso-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Wed May 29 16:08:23 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

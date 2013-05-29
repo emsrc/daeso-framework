@@ -1,0 +1,912 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>daeso.ptc.document.HitaextDoc</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="daeso-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="daeso-module.html">Package&nbsp;daeso</a> ::
+        <a href="daeso.ptc-module.html">Package&nbsp;ptc</a> ::
+        <a href="daeso.ptc.document-module.html">Module&nbsp;document</a> ::
+        Class&nbsp;HitaextDoc
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="daeso.ptc.document.HitaextDoc-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class HitaextDoc</h1><p class="nomargin-top"><span class="codelink"><a href="daeso.ptc.document-pysrc.html#HitaextDoc">source&nbsp;code</a></span></p>
+<pre class="base-tree">
+                       object --+        
+                                |        
+xml.etree.ElementTree.ElementTree --+    
+                                    |    
+                ielemtree.ElementTree --+
+                                        |
+                                       <strong class="uidshort">HitaextDoc</strong>
+</pre>
+
+<hr />
+<p>Hitaext XML document as an ElementTree</p>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="daeso.ptc.document.HitaextDoc-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">element</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">file</span>=<span class="summary-sig-default">None</span>)</span><br />
+      x.__init__(...) initializes x; see help(type(x)) for signature</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="daeso.ptc.document-pysrc.html#HitaextDoc.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="validate"></a><span class="summary-sig-name">validate</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      test XML for minimal requirements</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="daeso.ptc.document-pysrc.html#HitaextDoc.validate">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="get_filename"></a><span class="summary-sig-name">get_filename</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">side</span>,
+        <span class="summary-sig-arg">search</span>=<span class="summary-sig-default">False</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="daeso.ptc.document-pysrc.html#HitaextDoc.get_filename">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="set_filename"></a><span class="summary-sig-name">set_filename</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">side</span>,
+        <span class="summary-sig-arg">filename</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="daeso.ptc.document-pysrc.html#HitaextDoc.set_filename">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="get_pseudo_root"></a><span class="summary-sig-name">get_pseudo_root</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">side</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="daeso.ptc.document-pysrc.html#HitaextDoc.get_pseudo_root">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="set_pseudo_root"></a><span class="summary-sig-name">set_pseudo_root</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">side</span>,
+        <span class="summary-sig-arg">tag</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="daeso.ptc.document-pysrc.html#HitaextDoc.set_pseudo_root">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="get_pseudo_root_tags"></a><span class="summary-sig-name">get_pseudo_root_tags</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">side</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="daeso.ptc.document-pysrc.html#HitaextDoc.get_pseudo_root_tags">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="get_elem_tags"></a><span class="summary-sig-name">get_elem_tags</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">side</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="daeso.ptc.document-pysrc.html#HitaextDoc.get_elem_tags">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="get_elem"></a><span class="summary-sig-name">get_elem</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">side</span>,
+        <span class="summary-sig-arg">tag</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="daeso.ptc.document-pysrc.html#HitaextDoc.get_elem">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="get_elem_dict"></a><span class="summary-sig-name">get_elem_dict</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">side</span>,
+        <span class="summary-sig-arg">tag</span>)</span><br />
+      return a dict mapping tags to elements in the &lt;render&gt; section</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="daeso.ptc.document-pysrc.html#HitaextDoc.get_elem_dict">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="add_elem"></a><span class="summary-sig-name">add_elem</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">side</span>,
+        <span class="summary-sig-arg">tag</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="daeso.ptc.document-pysrc.html#HitaextDoc.add_elem">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="default_elem"></a><span class="summary-sig-name">default_elem</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">tag</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="daeso.ptc.document-pysrc.html#HitaextDoc.default_elem">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="init_elems"></a><span class="summary-sig-name">init_elems</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">side</span>,
+        <span class="summary-sig-arg">tree</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="daeso.ptc.document-pysrc.html#HitaextDoc.init_elems">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="get_tags"></a><span class="summary-sig-name">get_tags</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">side</span>,
+        <span class="summary-sig-arg">attrib</span>)</span><br />
+      return a list tags where value for attribute is True</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="daeso.ptc.document-pysrc.html#HitaextDoc.get_tags">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="daeso.ptc.document.HitaextDoc-class.html#write" class="summary-sig-name">write</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">file</span>,
+        <span class="summary-sig-arg">encoding</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">utf-8</code><code class="variable-quote">'</code></span>)</span><br />
+      write to file</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="daeso.ptc.document-pysrc.html#HitaextDoc.write">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="daeso.ptc.document.HitaextDoc-class.html#get_doc_tree" class="summary-sig-name">get_doc_tree</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">side</span>,
+        <span class="summary-sig-arg">search</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Get the document tree where side is either 'from' or 'to'.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="daeso.ptc.document-pysrc.html#HitaextDoc.get_doc_tree">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="get_doc_trees"></a><span class="summary-sig-name">get_doc_trees</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">search</span>=<span class="summary-sig-default">False</span>,
+        <span class="summary-sig-arg">update</span>=<span class="summary-sig-default">True</span>)</span><br />
+      Get pair of document trees</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="daeso.ptc.document-pysrc.html#HitaextDoc.get_doc_trees">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="set_alignment_method"></a><span class="summary-sig-name">set_alignment_method</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">method</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">n</code><code class="variable-quote">'</code></span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="daeso.ptc.document-pysrc.html#HitaextDoc.set_alignment_method">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="get_alignment_method"></a><span class="summary-sig-name">get_alignment_method</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="daeso.ptc.document-pysrc.html#HitaextDoc.get_alignment_method">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="clear_alignments"></a><span class="summary-sig-name">clear_alignments</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="daeso.ptc.document-pysrc.html#HitaextDoc.clear_alignments">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="add_n_alignment"></a><span class="summary-sig-name">add_n_alignment</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">from_tag</span>,
+        <span class="summary-sig-arg">from_n</span>,
+        <span class="summary-sig-arg">to_tag</span>,
+        <span class="summary-sig-arg">to_n</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="daeso.ptc.document-pysrc.html#HitaextDoc.add_n_alignment">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="add_id_alignment"></a><span class="summary-sig-name">add_id_alignment</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">from_tag</span>,
+        <span class="summary-sig-arg">from_id</span>,
+        <span class="summary-sig-arg">to_tag</span>,
+        <span class="summary-sig-arg">to_id</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="daeso.ptc.document-pysrc.html#HitaextDoc.add_id_alignment">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="get_alignments"></a><span class="summary-sig-name">get_alignments</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="daeso.ptc.document-pysrc.html#HitaextDoc.get_alignments">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="inject_alignments"></a><span class="summary-sig-name">inject_alignments</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">from_tree</span>,
+        <span class="summary-sig-arg">to_tree</span>)</span><br />
+      Update the _alignments attributes in both document trees according to
+      the links in the &lt;alignments&gt; section of the Hitaext XML 
+      document</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="daeso.ptc.document-pysrc.html#HitaextDoc.inject_alignments">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="inject_alignments_n"></a><span class="summary-sig-name">inject_alignments_n</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">from_tree</span>,
+        <span class="summary-sig-arg">to_tree</span>)</span><br />
+      Update the _alignments attributes in both document trees according to
+      the links in the &lt;alignments&gt; section of the Hitaext XML 
+      document, based on the &quot;from_n&quot; and &quot;to_n&quot; 
+      attributes.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="daeso.ptc.document-pysrc.html#HitaextDoc.inject_alignments_n">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="inject_alignments_id"></a><span class="summary-sig-name">inject_alignments_id</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">from_tree</span>,
+        <span class="summary-sig-arg">to_tree</span>)</span><br />
+      Update the _alignments attributes in both document trees according to
+      the links in the &lt;alignments&gt; section of the Hitaext XML 
+      document, based on the &quot;from_id&quot; and &quot;to_id&quot; 
+      attributes.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="daeso.ptc.document-pysrc.html#HitaextDoc.inject_alignments_id">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="extract_alignments"></a><span class="summary-sig-name">extract_alignments</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">from_tree</span>,
+        <span class="summary-sig-arg">to_tree</span>)</span><br />
+      Replace the links in the &lt;alignments&gt; section of the Hitaext 
+      XML document according to the _alignments attributes in both document
+      trees</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="daeso.ptc.document-pysrc.html#HitaextDoc.extract_alignments">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="extract_alignments_n"></a><span class="summary-sig-name">extract_alignments_n</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">from_tree</span>,
+        <span class="summary-sig-arg">to_tree</span>)</span><br />
+      Replace the links in the &lt;alignments&gt; section of the Hitaext 
+      XML document according to the _alignments attributes in both document
+      trees using &quot;from_n&quot; and &quot;to_n&quot; attributes.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="daeso.ptc.document-pysrc.html#HitaextDoc.extract_alignments_n">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="extract_alignments_id"></a><span class="summary-sig-name">extract_alignments_id</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">from_tree</span>,
+        <span class="summary-sig-arg">to_tree</span>)</span><br />
+      Replace the links in the &lt;alignments&gt; section of the Hitaext 
+      XML document according to the _alignments attributes in both document
+      trees using &quot;from_id&quot; and &quot;to_id&quot; attributes.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="daeso.ptc.document-pysrc.html#HitaextDoc.extract_alignments_id">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>ielemtree.ElementTree</code></b>:
+      <code>parse</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>xml.etree.ElementTree.ElementTree</code></b>:
+      <code>find</code>,
+      <code>findall</code>,
+      <code>findtext</code>,
+      <code>getiterator</code>,
+      <code>getroot</code>,
+      <code>iter</code>,
+      <code>iterfind</code>,
+      <code>write_c14n</code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code>xml.etree.ElementTree.ElementTree</code></b> (private):
+      <code>_setroot</code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__format__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__repr__</code>,
+      <code>__setattr__</code>,
+      <code>__sizeof__</code>,
+      <code>__str__</code>,
+      <code>__subclasshook__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="daeso.ptc.document.HitaextDoc-class.html#_hitaext_template" class="summary-name" onclick="show_private();">_hitaext_template</a> = <code title="'''
+    &lt;hitaext&gt;
+        &lt;from&gt;
+            &lt;filename /&gt;
+            &lt;render&gt;
+                &lt;font /&gt;
+                &lt;elements /&gt;
+            &lt;/render&gt;
+..."><code class="variable-quote">'</code><code class="variable-string">\n    &lt;hitaext&gt;\n        &lt;from&gt;\n        </code><code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="alignments_methods"></a><span class="summary-name">alignments_methods</span> = <code title="('n', 'id')"><code class="variable-group">(</code><code class="variable-quote">'</code><code class="variable-string">n</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">id</code><code class="variable-quote">'</code><code class="variable-group">)</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">element</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">file</span>=<span class="sig-default">None</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="daeso.ptc.document-pysrc.html#HitaextDoc.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>x.__init__(...) initializes x; see help(type(x)) for signature</p>
+  <dl class="fields">
+    <dt>Overrides:
+        object.__init__
+        <dd><em class="note">(inherited documentation)</em></dd>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="write"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">write</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">file</span>,
+        <span class="sig-arg">encoding</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">utf-8</code><code class="variable-quote">'</code></span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="daeso.ptc.document-pysrc.html#HitaextDoc.write">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>write to file</p>
+  <dl class="fields">
+    <dt>Overrides:
+        xml.etree.ElementTree.ElementTree.write
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_doc_tree"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_doc_tree</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">side</span>,
+        <span class="sig-arg">search</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="daeso.ptc.document-pysrc.html#HitaextDoc.get_doc_tree">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Get the document tree where side is either 'from' or 'to'. Returns an 
+  instance of IndexElemTree.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== CLASS VARIABLE DETAILS ==================== -->
+<a name="section-ClassVariableDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variable Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariableDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="_hitaext_template"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">_hitaext_template</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+<code class="variable-quote">'''</code><code class="variable-string"></code>
+<code class="variable-string">    &lt;hitaext&gt;</code>
+<code class="variable-string">        &lt;from&gt;</code>
+<code class="variable-string">            &lt;filename /&gt;</code>
+<code class="variable-string">            &lt;render&gt;</code>
+<code class="variable-string">                &lt;font /&gt;</code>
+<code class="variable-string">                &lt;elements /&gt;</code>
+<code class="variable-string">            &lt;/render&gt;</code>
+<code class="variable-ellipsis">...</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="daeso-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Wed May 29 16:08:23 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>
