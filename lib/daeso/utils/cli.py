@@ -24,6 +24,7 @@ generic command line interface for Daeso-framework scripts
 __authors__ = "Erwin Marsi <e.marsi@gmail.com>"
 
 
+from daeso.release import version
 from daeso.thirdparty.argparse import ( ArgumentParser, 
                                          RawDescriptionHelpFormatter )
 
@@ -35,10 +36,12 @@ class DaesoArgParser(ArgumentParser):
     def __init__(self, 
                  formatter_class=RawDescriptionHelpFormatter,
                  epilog=epilog, 
+                 version=version,
                  *args, 
                  **kwargs):
         ArgumentParser.__init__(self, *args,
                                 formatter_class=RawDescriptionHelpFormatter, 
                                 epilog=epilog, 
+                                version=version,
                                 **kwargs)
         

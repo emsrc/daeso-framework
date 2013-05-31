@@ -65,7 +65,7 @@ def extract_phrases(file, delimiter="\t", verbose=False):
             print delimiter.join(columns).encode("utf-8")
             
             
-parser = DaesoArgParser(description=__doc__.strip(), version=__revision__)
+parser = DaesoArgParser(description=__doc__.strip())
 
 parser.add_argument(
     "corpus", 

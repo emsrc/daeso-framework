@@ -39,7 +39,7 @@ from daeso.utils.opsys import multiglob
 from daeso.pgc.corpus import ParallelGraphCorpus
 
 
-parser = DaesoArgParser(description=__doc__, version=__revision__)
+parser = DaesoArgParser(description=__doc__)
 
     
 parser.add_argument(

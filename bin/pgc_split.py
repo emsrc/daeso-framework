@@ -36,7 +36,7 @@ def log(s):
     if args.verbose:
         print >>sys.stderr, "***", s
         
-parser = DaesoArgParser(description=__doc__, version=__revision__)
+parser = DaesoArgParser(description=__doc__)
 
 parser.add_argument(
     "filename",

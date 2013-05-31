@@ -17,7 +17,7 @@ from sys import stderr
 from daeso.utils.cli import DaesoArgParser
 from daeso.pgc.corpus import ParallelGraphCorpus, LOAD_NONE
 
-parser = DaesoArgParser(description=__doc__, version=__revision__)
+parser = DaesoArgParser(description=__doc__)
                         
 
 parser.add_argument(

@@ -41,7 +41,7 @@ from daeso.utils.cli import DaesoArgParser
 from daeso.pgc.agreement import run_eval
 
 
-parser = DaesoArgParser(description=__doc__, version=__revision__)
+parser = DaesoArgParser(description=__doc__)
 
 parser.add_argument(
     "corpus_fns",

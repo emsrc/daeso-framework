@@ -43,7 +43,7 @@ from daeso.utils.etree import write
 # - windows support
 
 
-parser = DaesoArgParser(description=__doc__, version=__revision__)
+parser = DaesoArgParser(description=__doc__)
                         
 
 parser.add_argument(

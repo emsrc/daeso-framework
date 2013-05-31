@@ -29,26 +29,19 @@ __authors__ = "Erwin Marsi <e.marsi@gmail.com>"
 
 
 from distutils.core import setup
+from imp import load_source
 from glob import glob
 from os import walk, path, remove
 from os.path import basename, isdir, join, exists
 from shutil import rmtree
 
+
+# "from daeso import release" won't work 
+release = load_source("release", "lib/daeso/release.py")
+
+
 if exists('MANIFEST'): remove('MANIFEST')
 if exists("build"): rmtree("build")
-
-name = "daeso-framework"
-version = "0.9.0"
-
-description = """DAESO Framework is a Python framework for working 
-with parallel treebanks"""
-
-long_description = """DAESO Framework is a Python library developed in the
-DAESO (Detecting And Exploiting Semantic Overlap) research project. It
-supports working with collections (corpora/treebanks/graphbanks) of aligned
-similar (parallel/comparable) text. It provides the foundation for the Hitaext
-and Algraeph corpus annotation tools, and for the language-specific DAESO
-Dutch library."""
 
 packages = [ root[4:] 
              for (root, dirs, files) in walk("lib") 
@@ -75,7 +68,7 @@ def get_data_files(data_dir_prefix, dir):
 
 
 # data files are installed under sys.prefix/share/pycornetto-%(version)
-data_dir = join("share", "%s-%s" % (name, version))
+data_dir = join("share", "%s-%s" % (release.name, release.version))
 data_files = [(data_dir, ['CHANGES', 'COPYING', 'INSTALL', 'README'])]
 data_files += get_data_files(data_dir, "doc")
 #data_files += get_data_files(data_dir, "data")
@@ -84,42 +77,22 @@ sdist_options = dict(
     formats=["zip","gztar","bztar"])
 
 setup(
-    name = name,
-    version = version,
-    description = description,
-    long_description = long_description, 
-    license = "GNU Public License v3",
-    author = "Erwin Marsi",
-    author_email = "e.marsi@gmail.com",
-    url = "http://daeso.uvt.nl/daeso-framework",
-    # download_url = """,
-    # formats = ["zip","gztar","bztar"],
+    name = release.name,
+    version = release.version,
+    description = release.description,
+    long_description = release.long_description, 
+    license = release.license,
+    author = release.author,
+    author_email = release.author_email,
+    url = release.url,
     requires = ["networkx"],
-    provides = ["daeso (%s)" % version],
+    provides = ["daeso (%s)" % release.version],
     package_dir = {"": "lib"},
     packages = packages,
     scripts = glob(join("bin","*.py")),
     data_files =  data_files,
     platforms = "POSIX, Mac OS X, MS Windows",
-    keywords = [
-        "graph alignment", 
-        "tree alignment", 
-        "parallel treebank",
-        "parallel graphbank", 
-        "parallel text", 
-        "comparable text" ],
-    classifiers = [
-        "Development Status :: 4 - Beta",
-        "Intended Audience :: Science/Research",
-        "License :: OSI Approved :: GNU Public License (GPL)",
-        "Operating System :: OS Independent",
-        "Programming Language :: Python",
-        "Topic :: Scientific/Engineering :: Artificial Intelligence",
-        "Topic :: Text Processing :: Linguistic",
-        "Topic :: Scientific/Engineering :: Information Analysis",
-        "Topic :: Text Processing :: Linguistic",
-        "Topic :: Text Processing :: Markup",
-        "Natural Language :: English"
-    ],
-    options =               dict(sdist=sdist_options)
+    keywords = release.keywords,
+    classifiers = release.classifiers,
+    options = dict(sdist=sdist_options)
 )

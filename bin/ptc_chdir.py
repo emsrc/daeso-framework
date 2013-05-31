@@ -35,7 +35,7 @@ from daeso.utils.cli import ArgumentParser
 from daeso.ptc.document import HitaextDoc
 
 
-parser = ArgumentParser(description=__doc__, version=__revision__)
+parser = ArgumentParser(description=__doc__)
 
 parser.add_argument(
     "corpus",

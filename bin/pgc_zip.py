@@ -70,7 +70,7 @@ def pgc_zip(zip_filename, pgc_filenames):
     zip_arch.close()
     
 
-parser = DaesoArgParser(description=__doc__, version=__revision__,
+parser = DaesoArgParser(description=__doc__,
                         epilog=epilog)
 
 parser.add_argument(

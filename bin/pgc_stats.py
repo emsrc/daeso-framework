@@ -42,7 +42,7 @@ Remarks:
 """ + epilog
 
 
-parser = DaesoArgParser(description=__doc__, version=__revision__,
+parser = DaesoArgParser(description=__doc__,
                         epilog=epilog)
 
 parser.add_argument(

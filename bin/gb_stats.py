@@ -43,8 +43,7 @@ Remarks:
 """ + epilog  
 
 
-parser = DaesoArgParser(description=__doc__, version=__reversion__,
-                        epilog=epilog)
+parser = DaesoArgParser(description=__doc__, epilog=epilog)
 
 parser.add_argument(
     "pattern", 
