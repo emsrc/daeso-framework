@@ -28,7 +28,7 @@ __author__ = "Erwin Marsi <e.marsi@gmail.com>"
 
 
 
-name = "daeso"
+name = "daeso-framework"
 
 version = "1.1"
 
